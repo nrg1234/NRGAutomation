@@ -1,177 +1,166 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("DSPLoginPage.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("01_NewEnrollment_UsageGreaterThan50KWH.feature");
 formatter.feature({
   "line": 2,
-  "name": "Login Screen Validation",
+  "name": "New Enrollment with usage \u003e 50Kwh",
   "description": "",
-  "id": "login-screen-validation",
+  "id": "new-enrollment-with-usage-\u003e-50kwh",
   "keyword": "Feature",
   "tags": [
     {
       "line": 1,
-      "name": "@Login"
+      "name": "@Enrollment"
     }
   ]
 });
 formatter.scenario({
   "line": 5,
-  "name": "Validate user is able to complete a Successful Single customer Enrollment \u003e 50Kwh with Product Type as Fixed, Bundling Options as  Ancillary, Losses",
+  "name": "Validate new Enrollment for a single customer with usage \u003e 50Kwh with Fixed product",
   "description": "",
-  "id": "login-screen-validation;validate-user-is-able-to-complete-a-successful-single-customer-enrollment-\u003e-50kwh-with-product-type-as-fixed,-bundling-options-as--ancillary,-losses",
+  "id": "new-enrollment-with-usage-\u003e-50kwh;validate-new-enrollment-for-a-single-customer-with-usage-\u003e-50kwh-with-fixed-product",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
     {
       "line": 4,
-      "name": "@smoke"
+      "name": "@EndToEnd"
     },
     {
       "line": 4,
-      "name": "@tc_01_SinglecustomerEnrollment"
+      "name": "@TC_001_NewEnrollment_SingleCustomer_FixedProduct"
     }
   ]
 });
 formatter.step({
   "line": 6,
-  "name": "User is on Url Login screen",
+  "name": "Sales person successfully logged into DSP",
   "keyword": "Given "
 });
 formatter.step({
   "line": 7,
-  "name": "Page Title Should be Digital Services Platform",
+  "name": "make sure he/she is in landing page",
   "keyword": "Then "
 });
 formatter.step({
   "line": 8,
-  "name": "Toggle should be Turned off",
+  "name": "Turn off WOLR view if enabled",
   "keyword": "Then "
 });
 formatter.step({
   "line": 9,
-  "name": "Create New Opportunity",
-  "keyword": "Given "
+  "name": "Add New Opportunity in DSP",
+  "keyword": "Then "
 });
 formatter.step({
   "line": 10,
-  "name": "Add Customer to DSP Opty",
+  "name": "Add Customer to the new Opty",
   "keyword": "When "
 });
 formatter.step({
   "line": 11,
-  "name": "Add Sites to the Opty",
+  "name": "Add Sites to the new Opty",
   "keyword": "Then "
 });
 formatter.step({
   "line": 12,
-  "name": "View Credit Chevron",
+  "name": "View Credit",
   "keyword": "Then "
 });
 formatter.step({
   "line": 13,
-  "name": "BA Approves Credit in Siebel",
+  "name": "Login to Siebel as BA",
   "keyword": "Then "
 });
 formatter.step({
   "line": 14,
-  "name": "Opportunity should be validated in VHOS",
+  "name": "Approves Credit",
   "keyword": "Then "
 });
 formatter.step({
   "line": 15,
-  "name": "price a deal",
+  "name": "Login to VHOS as Sales Person",
   "keyword": "Then "
 });
 formatter.step({
   "line": 16,
-  "name": "Generate Contract",
+  "name": "Validate Opty in VHOS",
   "keyword": "Then "
 });
 formatter.step({
   "line": 17,
-  "name": "View Contracts",
+  "name": "price a deal with Fixed product in DSP",
   "keyword": "Then "
 });
 formatter.step({
   "line": 18,
-  "name": "Send contract to customer",
+  "name": "Generate Contract in DSP",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 19,
+  "name": "Make sure the contract is generated",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 20,
+  "name": "Send generated contract to customer email",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "DSPLoginStepdefinition.user_is_on_Url_Login_screen()"
+  "location": "Login.user_is_on_Url_Login_screen()"
 });
 formatter.result({
-  "duration": 123185055248,
+  "duration": 7362669100,
   "status": "passed"
 });
 formatter.match({
-  "location": "DSPLoginStepdefinition.page_Title_Should_be_Digital_Services_Platform()"
+  "location": "Login.page_Title_Should_be_Digital_Services_Platform()"
 });
 formatter.result({
-  "duration": 10523267,
+  "duration": 107475378400,
   "status": "passed"
 });
 formatter.match({
-  "location": "DSPLoginStepdefinition.toggle_should_be_Turned_off()"
+  "location": "Login.toggle_should_be_Turned_off()"
 });
 formatter.result({
-  "duration": 15065627419,
+  "duration": 22284729800,
   "status": "passed"
 });
 formatter.match({
-  "location": "DSPEnrollment.create_new_opportunity()"
+  "location": "Enrollment.create_new_opportunity()"
 });
 formatter.result({
-  "duration": 6640488799,
+  "duration": 11680254600,
   "status": "passed"
 });
 formatter.match({
-  "location": "DSPEnrollment.add_customer_to_dsp_opty()"
+  "location": "Enrollment.add_customer_to_dsp_opty()"
 });
 formatter.result({
-  "duration": 24217439565,
+  "duration": 32874935100,
   "status": "passed"
 });
 formatter.match({
-  "location": "DSPEnrollment.add_sites_to_the_opty()"
+  "location": "Enrollment.add_sites_to_the_opty()"
 });
 formatter.result({
-  "duration": 61829374103,
+  "duration": 62780602100,
   "status": "passed"
 });
 formatter.match({
-  "location": "DSPEnrollment.view_credit_chevron()"
+  "location": "Enrollment.view_credit_chevron()"
 });
 formatter.result({
-  "duration": 241493935,
+  "duration": 1416664600,
   "status": "passed"
 });
 formatter.match({
-  "location": "DSPEnrollment.ba_approves_credit_in_siebel()"
+  "location": "Enrollment.Login_to_Siebel_as_BA()"
 });
 formatter.result({
-  "duration": 140001499428,
+  "duration": 13533052500,
   "status": "passed"
 });
 formatter.match({
-  "location": "DSPEnrollment.Opportunity_should_be_validated_in_VHOS()"
-});
-formatter.result({
-  "duration": 70669114278,
-  "status": "passed"
-});
-formatter.match({
-  "location": "DSPEnrollment.price_a_deal()"
-});
-formatter.result({
-  "duration": 45974369528,
-  "status": "passed"
-});
-formatter.match({
-  "location": "DSPEnrollment.generate_contract()"
-});
-formatter.result({
-  "duration": 101428152874,
-  "status": "passed"
-});
-formatter.match({
-  "location": "DSPEnrollment.View_Contracts()"
+  "location": "Enrollment.Ba_approves_credit_in_siebel()"
 });

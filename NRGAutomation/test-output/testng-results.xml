@@ -6,12 +6,12 @@
     <groups>
     </groups>
     <test name="Default test" duration-ms="9770" started-at="2021-10-28T12:57:04 CDT" finished-at="2021-10-28T12:57:14 CDT">
-      <class name="Stepdefinitions.DSPLoginStepdefinition">
-        <test-method status="PASS" signature="launchApp()[pri:0, instance:Stepdefinitions.DSPLoginStepdefinition@73700b80]" name="launchApp" duration-ms="9574" started-at="2021-10-28T12:57:05 CDT" finished-at="2021-10-28T12:57:14 CDT">
+      <class name="Stepdefinitions.DSP.LoginDSP">
+        <test-method status="PASS" signature="launchApp()[pri:0, instance:Stepdefinitions.DSP.LoginDSP@73700b80]" name="launchApp" duration-ms="9574" started-at="2021-10-28T12:57:05 CDT" finished-at="2021-10-28T12:57:14 CDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApp -->
-      </class> <!-- Stepdefinitions.DSPLoginStepdefinition -->
+      </class> <!-- Stepdefinitions.DSP.LoginDSP -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
