@@ -31,8 +31,9 @@ public class Library {
 		Properties prop = config.init_properties();
 		String browser = prop.getProperty("browser");
 
+		tearDownExistingDrivers();
 		if (browser.equals("Chrome")) {
-			tearDownExistingDrivers();
+
 			System.setProperty("webdriver.chrome.driver", "src/test/resources/Drivers/chromedriver.exe");
 			driver = new ChromeDriver();
 			System.out.println("Chrome Browser is launched");
