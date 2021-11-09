@@ -59,6 +59,8 @@ import java.util.Properties;
 	        log.info("*************************** Quit browser instance *************************** ");
 	    }
 
+
+
 	    /**
 //	     * @param scenario captures screenshot and attaches to scenario instance
 //	     */

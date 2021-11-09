@@ -71,7 +71,6 @@ public class AddSitesPopup extends Library{
     functions.setText(driver, SitestextArea, prop.getProperty("site-esids"));
 
  // Add sites to opportunity
-	
     functions.click(driver,addSitesBtn);
    
     functions.click(driver,submitSitesBtn);

@@ -1,9 +1,11 @@
 package Baseclass;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import Utilities.CommonFunctions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +15,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Pages.DSP.LandingPage;
 import Utilities.ConfigReader;
+
+
 
 public class Library {
 	
@@ -28,6 +32,7 @@ public class Library {
 		String browser = prop.getProperty("browser");
 
 		if (browser.equals("Chrome")) {
+			tearDownExistingDrivers();
 			System.setProperty("webdriver.chrome.driver", "src/test/resources/Drivers/chromedriver.exe");
 			driver = new ChromeDriver();
 			System.out.println("Chrome Browser is launched");
@@ -55,6 +60,16 @@ public class Library {
 		} catch (Exception e) {
 
 		}
+	}
+
+	private static void tearDownExistingDrivers() throws IOException {
+		Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
+	}
+
+	public void AdvancedOptions()throws Throwable{
+		CommonFunctions functions=new CommonFunctions();
+		driver.findElement(By.xpath("//button[@id='details-button']")).click();
+		driver.findElement(By.xpath("//a[@id='proceed-link']")).click();
 	}
 			
 }

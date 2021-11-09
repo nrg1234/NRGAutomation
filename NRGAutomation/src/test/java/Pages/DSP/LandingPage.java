@@ -447,11 +447,7 @@ public class LandingPage  extends Library{
 
 			
 
-				public void AdvancedOptions()throws Throwable{
-						CommonFunctions functions=new CommonFunctions();
-	//				driver.findElement(By.xpath("//button[@id='details-button']")).click();
-	//				driver.findElement(By.xpath("//a[@id='proceed-link']")).click();
-				}
+
 				
 				
 				/*

@@ -20,7 +20,9 @@ public class LoginDSP extends Library {
 		@Then("make sure he/she is in landing page")
 		public void page_Title_Should_be_Digital_Services_Platform() throws Throwable {
 			DSP.launchurl();
-			DSP.AdvancedOptions();
+			if (driver.getTitle().equals("Privacy error")) {
+				AdvancedOptions();
+			}
 			DSP.TitleValidation();
 			System.out.println("Page Title is Digital Services Platform ");
 		}

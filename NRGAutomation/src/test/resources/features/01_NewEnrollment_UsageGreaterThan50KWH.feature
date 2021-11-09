@@ -20,7 +20,7 @@ Feature: New Enrollment with usage > 50Kwh
     Then Send generated contract to customer email
     #Then close the deal
 
-  @TC_002_NewEnrollment_AggregateCustomer_IndexProduct
+  @smoke @TC_002_NewEnrollment_AggregateCustomer_IndexProduct
   Scenario: Validate new Enrollment for a aggregate customer with usage > 50Kwh with Index product
     Given Sales person successfully logged into DSP
     Then make sure he/she in landing page

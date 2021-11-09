@@ -89,8 +89,6 @@ public class BAApprovescreditinSiebel extends Library {
         // Go to opportunities tab
 
         try {
-            //My own visibility function
-
             functions.click(driver, opportunitiesTabsiebel);
         } catch (StaleElementReferenceException e) {
             e.getMessage();
