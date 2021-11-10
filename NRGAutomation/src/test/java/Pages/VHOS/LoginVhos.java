@@ -20,11 +20,9 @@ public class LoginVhos extends Library{
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void loginVhos(Map<String,Object> data, String Optyid) throws Throwable {
+	public void loginVhos() throws Throwable {
 	 //DSPHomePage Dsp=new DSPHomePage(driver);
 	 CommonFunctions functions=new CommonFunctions();
-	   
-	   System.out.println("passing the string value from AddsitestotheoPty method:"+Optyid);
 	 ConfigReader config=new ConfigReader();
 	   Properties prop=config.init_properties();
 

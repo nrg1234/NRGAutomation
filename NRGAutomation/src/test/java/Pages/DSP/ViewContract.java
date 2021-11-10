@@ -16,7 +16,7 @@ public class ViewContract extends Library{
 		}
 
 	@FindBy(xpath="//button[contains(text(), 'Contracts')]")
-	WebElement contracttab ;
+	WebElement contractTab ;
 	
 	  /*
    	 * View contracts 
@@ -24,7 +24,7 @@ public class ViewContract extends Library{
        public void contractcreation()throws Throwable {
     	   CommonFunctions functions=new CommonFunctions();
     	
-    	  functions.click(driver,contracttab);
+    	  functions.click(driver,contractTab);
     	// Wait for contract to be created
        /*	try {
    			Thread.sleep(700000);

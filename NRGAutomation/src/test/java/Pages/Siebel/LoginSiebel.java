@@ -18,11 +18,11 @@ public class LoginSiebel extends Library {
 
     LandingPage Dsp = new LandingPage(driver);
     @FindBy(xpath = "//input[@name='SWEUserName']")
-    WebElement SiebelUsernamefield;
+    WebElement siebelUserName;
     @FindBy(xpath = "//input[@name='SWEPassword']")
-    WebElement SiebelPasswordfield;
+    WebElement siebelPassword;
     @FindBy(xpath = "//a[@id='s_swepi_22']")
-    WebElement submitsiebelLogin;
+    WebElement submitBtn;
 
     public LoginSiebel(WebDriver driver) {
         Library.driver = driver;
@@ -30,9 +30,9 @@ public class LoginSiebel extends Library {
 
     }
 
-    public void LoginSiebel(Map<String, Object> data, String Optyid) throws Throwable {
+    public void LoginSiebel(String password) throws Throwable {
         CommonFunctions functions = new CommonFunctions();
-        System.out.println("passing the string value from Addsites to the OPty method:" + Optyid);
+        System.out.println("passing the string value from Addsites to the OPty method:" + password);
         ConfigReader config = new ConfigReader();
         Properties prop = config.init_properties();
 
@@ -43,14 +43,14 @@ public class LoginSiebel extends Library {
         ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(1));
 
-        submitsiebelLogin.click();
+        submitBtn.click();
 
 		// Enter username and password
-        functions.setText(driver, SiebelUsernamefield, prop.getProperty("SiebelUsername"));
-        functions.setText(driver, SiebelPasswordfield, prop.getProperty("SiebelPassword"));
+        functions.setText(driver, siebelUserName, prop.getProperty("SiebelUsername"));
+        functions.setText(driver, siebelPassword, password);
 
         // Log in
-        functions.click(driver, submitsiebelLogin);
+        functions.click(driver, submitBtn);
 
     }
 }

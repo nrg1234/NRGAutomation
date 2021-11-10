@@ -1,7 +1,7 @@
 @Enrollment
 Feature: WOLR Won and Lost Report
 
-  @EndToEnd @TC_012_WOLR 
+ @TC_012_WOLR
   Scenario: Validate WOLR Won Report Generation
     Given Sales person created an oppurtunity in DSP
     Then make sure he/she access DSP next day

@@ -4,7 +4,12 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+import Baseclass.Library;
 import Utilities.ConfigReader;
 import Utilities.DriverFactory;
 
@@ -16,7 +21,12 @@ import java.util.Properties;
 	 * @author jxavier Application hooks to launch browser, quit browser and capture
 	 * screenshots
 	 */
-	public class ApplicationHooks {
+	public class ApplicationHooks extends Library {
+		public  ApplicationHooks(WebDriver driver)  {
+			this.driver = driver;
+			PageFactory.initElements(driver, this);
+			}
+		
 
 	    public static Scenario scenario;
 	    Properties prop;
@@ -64,14 +74,14 @@ import java.util.Properties;
 	    /**
 //	     * @param scenario captures screenshot and attaches to scenario instance
 //	     */
-//	    @After(order = 1)
-//	    public void takeScreenshot(Scenario scenario) {
-//	        if (scenario.isFailed()) {
-//	            String screenshotName = scenario.getName().replaceAll(" ", "_");
-//	            byte[] screenshotPath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-//	            scenario.attach(screenshotPath, "image/png", screenshotName + "_Failed.png");
-//	        }
-//	    }
+	    @After(order = 1)
+	    public void takeScreenshot(Scenario scenario) {
+	        if (scenario.isFailed()) {
+	            String screenshotName = scenario.getName().replaceAll(" ", "_");
+            byte[] screenshotPath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshotPath, "image/png", screenshotName + "_Failed.png");
+        }
+    }
 
 	}
 

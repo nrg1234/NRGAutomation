@@ -22,28 +22,28 @@ public class PriceaDeal extends Library {
 		}
 	
 	@FindBy(xpath="//button[contains(text(), 'Quotes')]")
-	WebElement QuotesTAB;
+	WebElement quotesTAB;
 
 	@FindBy(xpath="//*[@id='quotesLoader']")
 	WebElement quotesLoader;
 
 	@FindBy(xpath="//span[contains(text(), 'See Details')]")
-	WebElement seedetails;
+	WebElement seeDetails;
 	
 	@FindBy(xpath="//button[@id='bp-visible-switch']")
-	WebElement BrokerVisibletoggle;
+	WebElement brokerVisibletoggle;
 	
 	@FindBy(xpath="//a[contains(text(), 'Index')]")
-	WebElement IndexTAB;
+	WebElement indexTAB;
 
 	@FindBy(xpath="//input[@id='mat-input-12']")
-	WebElement Marginfield;
+	WebElement marginfield;
 
 	@FindBy(xpath="//input[@id='mat-input-13']")
-	WebElement DOAMarginfield;
+	WebElement doaMarginfield;
 
 	@FindBy(xpath="//button[contains(text(), 'Calculate and Save')]")
-	WebElement CalculateandSave;
+	WebElement calculateAndSave;
 
 	@FindAll(value = { @FindBy(xpath="//span[contains(text(), 'Select')]") })
 	public List<WebElement> productSelectBtn;
@@ -54,9 +54,9 @@ public class PriceaDeal extends Library {
     public void priceadeal(Map<String,Object> data)throws Throwable  {
  	   CommonFunctions functions=new CommonFunctions();
  	// Navigate to quotes page
-    	assertTrue("Quotes page button should be there", QuotesTAB.isDisplayed());
+    	assertTrue("Quotes page button should be there", quotesTAB.isDisplayed());
     	//waitForvisibility(QuotesTAB,10);
-    	functions.click(driver,QuotesTAB);
+    	functions.click(driver,quotesTAB);
     	
     	
   // Wait for spinner to appear when request is made to Siebel
@@ -69,11 +69,11 @@ public class PriceaDeal extends Library {
  	
 
  	//Updating Margin and DOA Margin Values
- 	functions.setText(driver, Marginfield, data.get("Margin").toString());
- 	functions.setText(driver, DOAMarginfield, data.get("DOAMargin").toString());
+ 	functions.setText(driver, marginfield, data.get("Margin").toString());
+ 	functions.setText(driver, doaMarginfield, data.get("DOAMargin").toString());
  	
  	//Calculate and save
- 	functions.click(driver,CalculateandSave);
+ 	functions.click(driver,calculateAndSave);
  	
  	
  	 // Wait for spinner to appear when request is made to Siebel

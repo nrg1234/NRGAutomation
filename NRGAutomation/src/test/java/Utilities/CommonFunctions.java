@@ -1,5 +1,11 @@
 package Utilities;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -21,7 +27,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class CommonFunctions {
 
-
+WebDriver driver;
 	private Logger log = Logger.getLogger(CommonFunctions.class);
 
 	/**
@@ -38,6 +44,7 @@ public class CommonFunctions {
 			dropdown.selectByVisibleText(value);
 		} catch (Exception e) {
 			log.error("Unable to select dropdown value. " + e);
+			
 		}
 	}
 
@@ -117,7 +124,6 @@ public class CommonFunctions {
 			element.click();
 		} catch (Exception e) {
 			log.error("unable to click on element. " + e);
-
 		}
 	}
 
@@ -441,9 +447,69 @@ public class CommonFunctions {
 		Thread.sleep(30000);
 	}
 
-
-
+	/*
+	 * Method to Scroll to an element
+	 */
 	
+	public void scrollToElement(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		int yaxis = element.getLocation().getY();
+		int height = element.getSize().getHeight();
+		int scrollHeight = yaxis-height;
+		js.executeScript("scroll(0, "+scrollHeight+");");
+	}
+	
+	
+	/*
+	 * Waits till the Element becomes visible
+	 */
+		public void waitForvisibility(WebElement element,int seconds) {
+			try {
+				WebDriverWait wait = new WebDriverWait(driver, seconds);
+				wait.until(ExpectedConditions.visibilityOfElementLocated((By) element));
+			}catch(Exception e) {
+
+			}
+	}
+	/*
+	 * Waits till the Element becomes invisible
+	 */
+	
+		public void waitForinvisibility(WebElement element,int seconds) {
+			try {
+				WebDriverWait wait = new WebDriverWait(driver, seconds);
+				wait.until(ExpectedConditions.invisibilityOfElementLocated((By) element));
+			}catch(Exception e) {
+
+			}
+	}
+
+		//File upload by Robot Class
+	    public void uploadFileWithRobot (String filePath) {
+	        StringSelection stringSelection = new StringSelection(filePath);
+	        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+	        clipboard.setContents(stringSelection, null);
+	 
+	        Robot robot = null;
+	 
+	        try {
+	            robot = new Robot();
+	        } catch (AWTException e) {
+	            e.printStackTrace();
+	        }
+	 
+	        robot.delay(250);
+	        robot.keyPress(KeyEvent.VK_ENTER);
+	        robot.keyRelease(KeyEvent.VK_ENTER);
+	        robot.keyPress(KeyEvent.VK_CONTROL);
+	        robot.keyPress(KeyEvent.VK_V);
+	        robot.keyRelease(KeyEvent.VK_V);
+	        robot.keyRelease(KeyEvent.VK_CONTROL);
+	        robot.keyPress(KeyEvent.VK_ENTER);
+	        robot.delay(150);
+	        robot.keyRelease(KeyEvent.VK_ENTER);
+	    }
+		
 	
 
 }

@@ -22,15 +22,15 @@ public class BAApprovescreditinSiebel extends Library {
     @FindBy(xpath = "//a[contains(text(), 'Opportunities')]")
     WebElement opportunitiesTabsiebel;
     @FindBy(xpath = "//select[@name='s_vis_div']")
-    WebElement AllopportunityDropdown;
+    WebElement allOpportunityDropdown;
     @FindBy(xpath = "//button[@id='s_4_1_17_0_Ctrl']")
-    WebElement QueryButton;
+    WebElement queryBtn;
     @FindBy(xpath = "//td[@id='1_s_4_l_Opportunity__']")
-    WebElement opportunityidfield;
+    WebElement opportunityId;
     @FindBy(xpath = "//td[@id='1_s_4_l_Name']")
-    WebElement opportunitynamefield;
+    WebElement opportunityName;
     @FindBy(xpath = "//button[@id='s_4_1_14_0_Ctrl']")
-    WebElement GoButton;
+    WebElement goBtn;
     @FindBy(xpath = "//*[@id='a_3']/div/table/tbody/tr/td/div[1]/span/table/tbody/tr/td[1]")
     WebElement otherRandomDiv;
     @FindBy(xpath = "//a[contains(text(), 'Credit Review Result')]")
@@ -38,29 +38,29 @@ public class BAApprovescreditinSiebel extends Library {
     @FindBy(xpath = "//tr[@class='ui-widget-content jqgrow ui-row-ltr ui-state-highlight']/td[@id='1_s_1_l_Alert_Number']/a[@name='Alert Number']")
     WebElement creditAlertDrilldown;
     @FindBy(xpath = "//input[@name='s_1_1_6_0']")
-    WebElement Evaluatorfield;
+    WebElement evaluator;
     @FindBy(xpath = "//input[@name='s_2_1_2_0']")
-    WebElement CreditReviewResultdropdown;
+    WebElement creditReviewResultDropdown;
     @FindBy(xpath = "//li[@class='ui-menu-item']/a[@id='ui-id-1591']")
-    WebElement Creditreviewresultvalue;
+    WebElement creditReviewResultValue;
     @FindBy(xpath = "//input[@name='s_1_1_4_0']")
-    WebElement RERGScore;
+    WebElement rergScore;
     @FindBy(xpath = "//img[@id='s_1_1_7_0_icon']")
-    WebElement Lastcreditevaluationdate;
+    WebElement lastcreditevaluationdate;
     @FindBy(xpath = "//input[@name='s_1_1_2_0']")
-    WebElement LegalEntity;
+    WebElement legalEntity;
     @FindBy(xpath = "//input[@id='1_Name']")
     WebElement OpportunityNamefield;
     @FindBy(id = "1_Opportunity__")
     WebElement Opportunityidfield;
     @FindBy(xpath = "//a[@name='Name']")
-    WebElement Listofopportunities;
+    WebElement opportunitiesLst;
     @FindBy(xpath = "//img[@id='s_1_1_7_0_icon']")
-    WebElement Calendaricon;
+    WebElement calendarIcon;
     @FindBy(xpath = "//button[@class='ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all']")
-    WebElement CalendarDoneButton;
+    WebElement calendarDoneBtn;
     @FindBy(xpath = "//a[contains(text(), '17')]")
-    WebElement Calendardate;
+    WebElement calendarDate;
 
     public BAApprovescreditinSiebel(WebDriver driver) {
         Library.driver = driver;
@@ -95,7 +95,7 @@ public class BAApprovescreditinSiebel extends Library {
         }
 
         // Select "all opportunities"
-        functions.selectDropdownByVisibleText(driver, AllopportunityDropdown, "All Opportunities");
+        functions.selectDropdownByVisibleText(driver, allOpportunityDropdown, "All Opportunities");
 
 
         // Wait few seconds for opportunities to refresh
@@ -107,7 +107,7 @@ public class BAApprovescreditinSiebel extends Library {
         }
 
         // Query for the opportunity
-        functions.click(driver, QueryButton);
+        functions.click(driver, queryBtn);
 
         // Wait for query view to appear
         try {
@@ -130,7 +130,7 @@ public class BAApprovescreditinSiebel extends Library {
         // Query for the opportunity by ID
         Thread.sleep(5000);
 
-        functions.click(driver, GoButton);
+        functions.click(driver, goBtn);
 
         // Wait for query to finish
         try {
@@ -156,7 +156,7 @@ public class BAApprovescreditinSiebel extends Library {
         }
 
         // Click into opportunity
-        functions.click(driver, Listofopportunities);
+        functions.click(driver, opportunitiesLst);
 
 
         //Click into creditReviewResultTab
@@ -178,15 +178,15 @@ public class BAApprovescreditinSiebel extends Library {
 
 
         // Wait for last credit eval date input, and enter today's date
-        functions.setText(driver, Evaluatorfield, data.get("Evaluator").toString());
-        functions.click(driver, Calendaricon);
-        functions.click(driver, Calendardate);
-        functions.click(driver, CalendarDoneButton);
+        functions.setText(driver, evaluator, data.get("Evaluator").toString());
+        functions.click(driver, calendarIcon);
+        functions.click(driver, calendarDate);
+        functions.click(driver, calendarDoneBtn);
 
 
         // Select a RERG score, and set status to accepted
-        functions.setText(driver, RERGScore, data.get("RERGScore").toString());
-        functions.setText(driver, CreditReviewResultdropdown, data.get("CreditReviewResult").toString());
+        functions.setText(driver, rergScore, data.get("RERGScore").toString());
+        functions.setText(driver, creditReviewResultDropdown, data.get("CreditReviewResult").toString());
 
 
         // Wait for everything to update

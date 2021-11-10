@@ -15,20 +15,17 @@ public class ViewCredit extends Library{
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		}
-	
-	
+
 	@FindBy(xpath="//button[contains(text(), 'Credit')]")
-	WebElement CreditTAB;
+	WebElement creditTAB;
 	
 	/*
      * View Credit 
      */
-	
 	public LoginSiebel ViewCreditChevron() throws Throwable {
-		CommonFunctions functions=new CommonFunctions();
-	//View Credit 
-		//waitForvisibility(CreditTAB,10);
-	functions.click(driver,CreditTAB);
+	CommonFunctions functions=new CommonFunctions();
+	//View Credit
+	functions.click(driver,creditTAB);
 	return new LoginSiebel(driver);
 	}
 }

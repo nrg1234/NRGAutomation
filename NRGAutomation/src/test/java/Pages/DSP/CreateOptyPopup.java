@@ -26,16 +26,16 @@ public class CreateOptyPopup extends Library {
 	WebElement createNewOptyBtn;
 	
 	@FindBy(id="opportunityName")
-	WebElement Opportunityname;
+	WebElement opportunityName;
 	
 	@FindBy(xpath="//input[@id='dueDate']")
-	WebElement DueDate;
+	WebElement dueDate;
 
 	@FindBy(xpath="//select[@id='market']")
-	WebElement Market;
+	WebElement market;
 	
 	@FindBy(xpath="//select[@id='marketSegment']")
-	WebElement Marketsegment;
+	WebElement marketsegment;
 	
 	@FindBy(xpath="//input[@id='startDate']")
 	WebElement startDate;
@@ -44,7 +44,7 @@ public class CreateOptyPopup extends Library {
 	WebElement endDate;
 	
 	@FindBy(xpath="//input[@name='thirdparty']")
-	WebElement Thirdparty;
+	WebElement thirdParty;
 	
 	@FindBy(xpath="//input[@name='accountRep']")
 	WebElement accountRep;
@@ -53,7 +53,7 @@ public class CreateOptyPopup extends Library {
 	WebElement accountRepMenu;
 	
 	@FindAll(value = { @FindBy(xpath="//button[contains(text(), 'Create')]") })
-	public List<WebElement> CreateButton;
+	public List<WebElement> createBtn;
 	
 	@FindBy(xpath="//*[@id=\'navbar-2\']/form/div[1]/div/h1")
 	WebElement randomOptyName;
@@ -66,16 +66,16 @@ CommonFunctions functions=new CommonFunctions();
 functions.click(driver,createNewOptyBtn);
 
 // Enter opportunity name
-functions.setText(driver, Opportunityname, data.get("Opportunityname").toString());
+functions.setText(driver, opportunityName, data.get("Opportunityname").toString());
 
 // Wait for Duedate pop up before writing to input
-functions.setText(driver, DueDate, data.get("DueDate").toString());
+functions.setText(driver, dueDate, data.get("DueDate").toString());
  
 // Select the Market using the visible text
- functions.selectDropdownByVisibleText(driver,Market,data.get("Market").toString());
+ functions.selectDropdownByVisibleText(driver,market,data.get("Market").toString());
 
 // Select the Marketsegment using the visible text
- functions.selectDropdownByVisibleText(driver,Marketsegment,data.get("MarketSegment").toString());
+ functions.selectDropdownByVisibleText(driver,marketsegment,data.get("MarketSegment").toString());
 		
 // Select the start Date for the Opportunity
 functions.setText(driver,startDate,data.get("startDate").toString());
@@ -88,7 +88,7 @@ functions.setText(driver,accountRep,data.get("accountRep").toString());
 functions.click(driver,accountRepMenu);
 
 // Click "create Button"
-List<WebElement> Createbutton= CreateButton;
+List<WebElement> Createbutton= createBtn;
 		if(Createbutton.size()>0 ==true && Createbutton.get(1).isDisplayed()==true) {
 			Createbutton.get(1).click();
 		}	

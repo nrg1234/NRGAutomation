@@ -22,9 +22,9 @@ public class VhosPage extends Library {
     @FindBy(xpath = "//a[contains(text(), 'here')]")
     WebElement clickhereButton;
     @FindBy(xpath = "//span[@id='A0486:f2:msg']")
-    WebElement SearchResult;
+    WebElement searchResult;
     @FindBy(xpath = "//input[@id='A3574:sff2:searchString2']")
-    WebElement SearchfieldinVHOS;
+    WebElement searchfieldinVHOS;
 
     public VhosPage(WebDriver driver) {
         Library.driver = driver;
@@ -43,7 +43,7 @@ public class VhosPage extends Library {
         }
     }
 
-    public LandingPage ValidateOpportunitydetailsinVHOS(Map<String, Object> data, String Optyid) throws Throwable {
+    public LandingPage ValidateOpportunitydetailsinVHOS(String Optyid) throws Throwable {
         LandingPage Dsp = new LandingPage(driver);
         CommonFunctions functions = new CommonFunctions();
 
@@ -57,8 +57,8 @@ public class VhosPage extends Library {
         driver.switchTo().window(tabs2.get(1));
 
         //Enters Opportunity id in the Search Field
-        functions.setText(driver, SearchfieldinVHOS, Optyid);
-        SearchfieldinVHOS.sendKeys(Keys.ENTER);
+        functions.setText(driver, searchfieldinVHOS, Optyid);
+        searchfieldinVHOS.sendKeys(Keys.ENTER);
         System.out.println("Opportunity id has been successfully entered in the search field");
 
         // Wait for Opportunity ID to get displayed

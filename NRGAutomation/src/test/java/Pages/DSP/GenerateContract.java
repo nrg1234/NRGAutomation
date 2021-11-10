@@ -22,13 +22,13 @@ public class GenerateContract extends Library {
 	WebElement generateContractModalBtn;
 	
 	@FindBy(xpath="//input[@id='name']")
-	WebElement Dealoptionname;
+	WebElement dealOptionName;
 	
 	@FindBy(xpath="//select[@id='templateName']")
-	WebElement TemplateName;
+	WebElement templateName;
 	
 	@FindBy(xpath="//button[contains(text(), 'Enter Info')]")
-	WebElement NoticeAddressButton;
+	WebElement noticeAddressBtn;
 	
 	@FindBy(xpath="//span[@class='ng-arrow-wrapper']")
 	WebElement contactNameDropdown ;
@@ -40,10 +40,10 @@ public class GenerateContract extends Library {
 	WebElement addContactToCustomerBtn ;
 	
 	@FindBy(xpath="/html/body/ngb-modal-window/div/div/jhi-contract-generation-modal/jhi-modal/div[2]/jhi-contract-generation/div/div/div/div/div/form/div[8]/div/table/tbody/tr/td[5]/select")
-	WebElement ApproverDropdown;
+	WebElement approverDropdown;
 	
 	@FindAll(value = { @FindBy(xpath="//button[contains(text(), 'Generate Contract')]")})
-	public List<WebElement> ContractButtonInformationPage;
+	public List<WebElement> contractBtn;
 	
 	 /*
    	 * Generate contract workflow.
@@ -58,13 +58,13 @@ public class GenerateContract extends Library {
 		functions.click(driver,generateContractModalBtn);
 
     	// Fill out modal
-		functions.setText(driver, Dealoptionname, data.get("Dealoptionname").toString());
+		functions.setText(driver, dealOptionName, data.get("Dealoptionname").toString());
 
 		// Select the option using the visible text
-    	functions.selectDropdownByVisibleText(driver,TemplateName,data.get("TemplateName").toString());
+    	functions.selectDropdownByVisibleText(driver,templateName,data.get("TemplateName").toString());
 
 		// Add contact notice address
-		functions.click(driver,NoticeAddressButton);
+		functions.click(driver,noticeAddressBtn);
 
 		// Wait for spinner to appear Contact Info
     	try {
@@ -73,8 +73,8 @@ public class GenerateContract extends Library {
 			System.err.println("Failed to Thread.sleep()!");
 			e.printStackTrace();
 		}
+    	// Selects contact name from the Dropdown
     	functions.click(driver,contactNameDropdown);
-
     	contactNameValue.get(1).click();
     	functions.click(driver,addContactToCustomerBtn);
     	
@@ -87,10 +87,10 @@ public class GenerateContract extends Library {
 		}
     	
 		// Choose approver
-		functions.selectDropdownByVisibleText(driver,ApproverDropdown,data.get("Approver").toString());
+		functions.selectDropdownByVisibleText(driver,approverDropdown,data.get("Approver").toString());
 
 		// Generate contract
-		ContractButtonInformationPage.get(1).click();
+		contractBtn.get(1).click();
     	
     	// Wait for spinner to Load
     	try {
@@ -104,7 +104,7 @@ public class GenerateContract extends Library {
     	   
     	// Wait for dealoption status to get Approved
     	   try {
-      			Thread.sleep(60000);
+      			Thread.sleep(80000);
       		} catch (InterruptedException e) {
       			System.err.println("Failed to Thread.sleep()!");
       			e.printStackTrace();

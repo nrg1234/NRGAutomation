@@ -22,8 +22,6 @@ public class Library {
 	
 
 	public static WebDriver driver;
-	FileInputStream fis;
-	Properties prop;
 	
 	public void launchApp() throws Throwable {
 
