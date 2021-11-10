@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Properties;
@@ -18,10 +19,14 @@ public class LandingPage extends Library {
     @FindBy(xpath="//button[contains(text(), 'Clear Filters')]")
     WebElement clearFilterBtn;
 
+    @FindBy(xpath="//button[@class='btn btn-link mdi wolr-toggle wolr-on mdi-toggle-switch']")
+    WebElement wolrToggle;
+
     Logger LOG = Logger.getLogger(LandingPage.class.getName());
+    Library drivers;
 
     public LandingPage(WebDriver driver) {
-        Library.driver = driver;
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
@@ -49,20 +54,14 @@ public class LandingPage extends Library {
     /*
      * Turn off the Toggle Button in Dsp
      */
-    public void Toggle(boolean checked) {
+    public void Toggle(Boolean toggleEnabled) {
         CommonFunctions functions=new CommonFunctions();
-        WebDriverWait wait = new WebDriverWait(driver, 80);
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='btn btn-link mdi wolr-toggle wolr-on mdi-toggle-switch']")));
-				  /*  WebElement checkbox =driver.findElement(By.xpath("//button[@class='btn btn-link mdi wolr-toggle wolr-on mdi-toggle-switch']"));
-					if (checked != checkbox.isSelected())
-				    {
-				        checkbox.click();
-				    }
-					else {*/
+        drivers.waitForvisibility(wolrToggle,90);
+        if (wolrToggle.isSelected() != toggleEnabled ) {
+            functions.click(driver,wolrToggle);
+        }
         functions.click(driver,clearFilterBtn);
-        driver.findElement(By.xpath("//button[contains(text(), 'Clear Filters')]")).click();
         System.out.println("WOLR VIEW TOGGLE is disabled");
-
     }
 }
 				

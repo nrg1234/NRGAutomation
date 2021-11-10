@@ -6,15 +6,20 @@ Feature: New Enrollment with usage < 50Kwh
     Given Sales person successfully logged into DSP
     Then make sure he/she is in landing page
     Then Turn off WOLR view if enabled
-    Given Add New Opportunity in DSP with customer sales group as Net New
+    Given Add New Opportunity in DSP with customer sales group as Mid Market
     When Add Customer to the new Opty
     Then Add Sites to the new Opty
+    Then Check Opty details in VHOS - Customers, Sites
+    Then Navigate to quote page and check whether the user is getting the below pop up message with YES and NO Button
+    Then Opportunity status validation in Siebel 
+    Then OLD oppty cancelled in VHOS and NEW opty got created in VHOS
     Then View Credit is automatically approved
     Then Login to VHOS as Sales Person
     Then Validate Opty in VHOS
     Then price a deal with Fixed product in DSP
     Then Generate Contract in DSP
     Then Make sure the contract is generated
+    Then Validate Deal options in VHOS 
     Then Send generated contract to customer email
     Then close the deal
 

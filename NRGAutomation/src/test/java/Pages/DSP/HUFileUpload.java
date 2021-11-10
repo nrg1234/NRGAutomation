@@ -56,15 +56,21 @@ public class HUFileUpload extends Library{
 		//Click Browse button and Select the Upload File from the machine
 		
 		Actions act=new Actions(driver);
+		
 		WebElement chooseFile= browseBtn;
+		
 		act.moveToElement(chooseFile).click().perform();
+		
 		Thread.sleep(6000);
 		
+		String filePath = "./src/test/resources/DataReader/ADAMS GROCERY.xlsx";
 		
-		String filePath = "C:\\Users\\pankajab\\Pictures\\ADAMS GROCERY.xlsx";
 		filePath.replaceAll("\\\\", "\\\\\\\\");
+		
 		System.out.println(filePath);
+		
 		functions.uploadFileWithRobot(filePath);
+		
 		Thread.sleep(3000);
 	
 		//Click Upload Button

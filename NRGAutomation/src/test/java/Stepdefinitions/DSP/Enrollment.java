@@ -4,12 +4,12 @@ import Baseclass.Library;
 import Pages.DSP.*;
 import Pages.Siebel.BAApprovescreditinSiebel;
 import Pages.Siebel.LoginSiebel;
-import Pages.Siebel.PasswordEncryption;
 import Pages.VHOS.LoginVhos;
 import Pages.VHOS.VhosPage;
 import Utilities.ExcelUtil;
+import Utilities.PasswordEncryption;
 import Utilities.SeleniumUtil;
-import apphooks.ApplicationHooks;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -20,21 +20,21 @@ import java.util.Map;
 public class Enrollment extends Library {
     String optyID;
     String password;
-    CreateOptyPopup opportunity=new CreateOptyPopup(driver);
-    AddCustomerPopup customer=new AddCustomerPopup(driver);
-    AddSitesPopup sites=new AddSitesPopup(driver);
-    ViewCredit credit=new ViewCredit(driver);
-    LoginSiebel login=new LoginSiebel(driver);
+    CreateOptyPopup opportunity = new CreateOptyPopup(driver);
+    AddCustomerPopup customer = new AddCustomerPopup(driver);
+    AddSitesPopup sites = new AddSitesPopup(driver);
+    ViewCredit credit = new ViewCredit(driver);
+    LoginSiebel login = new LoginSiebel(driver);
     BAApprovescreditinSiebel siebel = new BAApprovescreditinSiebel(driver);
-    LoginVhos loginvhos=new LoginVhos(driver);
+    LoginVhos loginvhos = new LoginVhos(driver);
     VhosPage vhos = new VhosPage(driver);
-    PriceaDeal deal=new PriceaDeal(driver);
-    GenerateContract contract=new GenerateContract(driver);
-    ViewContract status=new ViewContract(driver);
-    SendContracttoCustomer sendContract=new SendContracttoCustomer(driver);
-    PasswordEncryption encrypted=new PasswordEncryption(driver);
-    SeleniumUtil utility=new SeleniumUtil(driver);
-    HUFileUpload upload=new HUFileUpload(driver);
+    PriceaDeal deal = new PriceaDeal(driver);
+    GenerateContract contract = new GenerateContract(driver);
+    ViewContract status = new ViewContract(driver);
+    SendContracttoCustomer sendContract = new SendContracttoCustomer(driver);
+    PasswordEncryption encrypted = new PasswordEncryption();
+    SeleniumUtil utility = new SeleniumUtil(driver);
+    HUFileUpload upload = new HUFileUpload(driver);
 
 
     @Then("Add New Opportunity in DSP")
@@ -43,12 +43,12 @@ public class Enrollment extends Library {
         List<Map<String, Object>> data = util.getData(".\\src\\test\\resources\\DataReader\\DSPTest.xlsx", "Source");
         System.out.println(data);
         for (Map<String, Object> currentrow : data) {
-        	opportunity.CreateNewOpportunity(currentrow);
+            opportunity.CreateNewOpportunity(currentrow);
             System.out.println("Created New Opportunity");
             break;
         }
-            utility.takeScreenshot();
-            //upload.fileupload();
+        utility.takeScreenshot();
+
 
     }
 
@@ -57,14 +57,14 @@ public class Enrollment extends Library {
         ExcelUtil util = new ExcelUtil();
         List<Map<String, Object>> data = util.getData(".\\src\\test\\resources\\DataReader\\DSPTest.xlsx", "Source");
         for (Map<String, Object> currentrow : data) {
-        	customer.AddCustomertoOpportunity(currentrow);
+            customer.AddCustomertoOpportunity(currentrow);
             System.out.println("customer successfully added to the Opportunity in DSP");
             break;
         }
 
     }
 
-    @Then("Add Sites to the new Opty")
+    @When("Add Sites to the new Opty")
     public void add_sites_to_the_opty() throws Throwable {
         optyID = sites.AddSitestotheOpty();
         System.out.println("Sites successfully added to the Opportunity");
@@ -72,16 +72,16 @@ public class Enrollment extends Library {
 
     @Then("View Credit")
     public void view_credit_chevron() throws Throwable {
-    	credit.ViewCreditChevron();
+        credit.ViewCreditChevron();
         System.out.println("creditreviewresult is displayed as Inprogress");
     }
 
-    @Then("Login to Siebel as BA")
+    @When("Login to Siebel as BA")
     public void Login_to_Siebel_as_BA() throws Throwable {
-    	password = encrypted.Encryption();
-        	login.LoginSiebel(password);
-            System.out.println("Login to Sibel is Successful");
-        }
+        password = encrypted.Encryption();
+        login.LoginSiebel(password);
+        System.out.println("Login to Sibel is Successful");
+    }
 
     @Then("Approves Credit")
     public void Ba_approves_credit_in_siebel() throws Throwable {
@@ -94,26 +94,26 @@ public class Enrollment extends Library {
         }
     }
 
-    @Then("Login to VHOS as Sales Person")
+    @When("Login to VHOS as Sales Person")
     public void Login_to_VHOS_as_Sales_Person() throws Throwable {
-        	loginvhos.loginVhos();
-            System.out.println("Login to Vhos is Successful");
+        loginvhos.loginVhos();
+        System.out.println("Login to Vhos is Successful");
     }
 
-    
+
     @Then("Validate Opty in VHOS")
     public void Opportunity_should_be_validated_in_VHOS() throws Throwable {
-            vhos.ValidateOpportunitydetailsinVHOS(optyID);
-            System.out.println("Opportunity has been validated in VHOS");
+        vhos.ValidateOpportunitydetailsinVHOS(optyID);
+        System.out.println("Opportunity has been validated in VHOS");
     }
 
-    @Then("price a deal with Fixed product in DSP")
+    @And("price a deal with Fixed product in DSP")
     public void price_a_deal() throws Throwable {
 
         ExcelUtil util = new ExcelUtil();
         List<Map<String, Object>> data = util.getData(".\\src\\test\\resources\\DataReader\\DSPTest.xlsx", "Source");
         for (Map<String, Object> currentrow : data) {
-        	deal.priceadeal(currentrow);
+            deal.priceadeal(currentrow);
             System.out.println("Product has been successfully selected");
             break;
         }
@@ -125,7 +125,7 @@ public class Enrollment extends Library {
         ExcelUtil util = new ExcelUtil();
         List<Map<String, Object>> data = util.getData(".\\src\\test\\resources\\DataReader\\DSPTest.xlsx", "Source");
         for (Map<String, Object> currentrow : data) {
-        	contract.GenerateContract(currentrow);
+            contract.GenerateContract(currentrow);
             System.out.println("Contract has been successfully generated");
             break;
         }
@@ -133,17 +133,17 @@ public class Enrollment extends Library {
 
     @Then("Make sure the contract is generated")
     public void View_Contracts() throws Throwable {
-    	status.contractcreation();
+        status.contractcreation();
         System.out.println("Contract has been Successfully created");
     }
 
-    @Then("Send generated contract to customer email")
+    @And("Send generated contract to customer email")
     public void send_contract_to_customer() throws Throwable {
 
         ExcelUtil util = new ExcelUtil();
         List<Map<String, Object>> data = util.getData(".\\src\\test\\resources\\DataReader\\DSPTest.xlsx", "Source");
         for (Map<String, Object> currentrow : data) {
-        	sendContract.Sendcontracttocustomer(currentrow);
+            sendContract.Sendcontracttocustomer(currentrow);
             System.out.println("Contract has been Successfully sent to Customer");
             break;
         }

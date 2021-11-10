@@ -12,7 +12,7 @@ import java.io.IOException;
 public class ReadXMLFile {   
 	public static void main(String argv[]) throws ParserConfigurationException, SAXException, IOException{   
 	//creating a constructor of file class and parsing an XML file  
-	File file = new File("C:\\Users\\pankajab\\eclipse-workspace\\Latest119\\NRGAutomation.zip_expanded\\NRGAutomation\\src\\test\\resources\\DataReader\\OPPORTUNITYREQUEST_PAYLOAD.xml");  
+	File file = new File("./src/test/resources/DataReader/OPPORTUNITYREQUEST_PAYLOAD.xml");
 	//an instance of factory that gives a document builder  
 	DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();  
 	//an instance of builder to parse the specified xml file  
@@ -75,4 +75,3 @@ public class ReadXMLFile {
 	
 	}}
 	}}
-
