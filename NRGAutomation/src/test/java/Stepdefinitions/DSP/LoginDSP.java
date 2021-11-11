@@ -31,7 +31,7 @@ public class LoginDSP extends Library {
     }
 
     @And("Turn off WOLR view if enabled")
-    public void toggle_should_be_Turned_off() throws Throwable {
+    public void toggle_should_be_Turned_off()  {
         DSP.Toggle(false);
         System.out.println("Toggle is Turned off");
     }

@@ -8,7 +8,7 @@ import Pages.VHOS.LoginVhos;
 import Pages.VHOS.VhosPage;
 import Utilities.ExcelUtil;
 import Utilities.PasswordEncryption;
-import Utilities.SeleniumUtil;
+import Utilities.Reports;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -33,7 +33,7 @@ public class Enrollment extends Library {
     ViewContract status = new ViewContract(driver);
     SendContracttoCustomer sendContract = new SendContracttoCustomer(driver);
     PasswordEncryption encrypted = new PasswordEncryption();
-    SeleniumUtil utility = new SeleniumUtil(driver);
+    Reports utility = new Reports(driver);
     HUFileUpload upload = new HUFileUpload(driver);
 
 
@@ -48,8 +48,6 @@ public class Enrollment extends Library {
             break;
         }
         utility.takeScreenshot();
-
-
     }
 
     @When("Add Customer to the new Opty")

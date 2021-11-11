@@ -23,7 +23,6 @@ public class LandingPage extends Library {
     WebElement wolrToggle;
 
     Logger LOG = Logger.getLogger(LandingPage.class.getName());
-    Library drivers;
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
@@ -31,7 +30,7 @@ public class LandingPage extends Library {
     }
 
     // Navigate to DSP
-    public void launchurl() throws Throwable {
+    public void launchurl()  {
         CommonFunctions functions = new CommonFunctions();
         ConfigReader config = new ConfigReader();
         Properties prop = config.init_properties();
@@ -56,7 +55,7 @@ public class LandingPage extends Library {
      */
     public void Toggle(Boolean toggleEnabled) {
         CommonFunctions functions=new CommonFunctions();
-        drivers.waitForvisibility(wolrToggle,90);
+        functions.waitForvisibility(wolrToggle,90);
         if (wolrToggle.isSelected() != toggleEnabled ) {
             functions.click(driver,wolrToggle);
         }

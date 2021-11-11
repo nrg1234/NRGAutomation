@@ -1,4 +1,4 @@
-@Enrollment
+@WOLR_Reports
 Feature: WOLR Won and Lost Report
 
  @TC_012_WOLR

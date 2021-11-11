@@ -4,7 +4,7 @@ package Utilities;
 	import com.datastax.driver.core.Cluster.Builder;
 	import com.datastax.driver.core.ColumnDefinitions.Definition;
 	import org.apache.log4j.Logger;
-	import Utilities.ConstantVariables.CassandraConnection;
+
 
 	import java.util.*;
 
@@ -28,7 +28,7 @@ package Utilities;
 
 	    /**
 	     * connect to cassandra database
-	     */
+	     *//*
 	    private void connectCassandra() {
 	        try {
 	            String environment = prop.getProperty("dbEnvironment");
@@ -46,7 +46,7 @@ package Utilities;
 	            log.error("Unable to connect to Cassandra. " + e);
 	        }
 	    }
-
+*/
 	    /**
 	     * close database connection
 	     */
@@ -69,7 +69,7 @@ package Utilities;
 	    public List<Map<String, String>> executeQuery(String query) {
 	        List<Map<String, String>> resultList = new ArrayList<Map<String, String>>();
 	        try {
-	            connectCassandra();
+	            //connectCassandra();
 	            log.info("Executing query: " + query);
 	            Map<String, String> recordMap = new LinkedHashMap<>();
 	            Map<String, String> columnMap = new LinkedHashMap<>();

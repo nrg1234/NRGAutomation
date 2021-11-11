@@ -41,8 +41,6 @@ public class HUFileUpload extends Library{
 	public void fileupload() throws InterruptedException {
 		
 		CommonFunctions functions=new CommonFunctions();
-		
-		Thread.sleep(2000);
 
 		// Click HU Tab
 		HUTab.get(0).click();
@@ -50,19 +48,11 @@ public class HUFileUpload extends Library{
 		//Click Upload HU Button
 		
 		functions.click(driver,uploadHUBtn);
-		
-		Thread.sleep(2000);
-		
+
 		//Click Browse button and Select the Upload File from the machine
 		
 		Actions act=new Actions(driver);
-		
-		WebElement chooseFile= browseBtn;
-		
-		act.moveToElement(chooseFile).click().perform();
-		
-		Thread.sleep(6000);
-		
+		act.moveToElement(browseBtn).click().perform();
 		String filePath = "./src/test/resources/DataReader/ADAMS GROCERY.xlsx";
 		
 		filePath.replaceAll("\\\\", "\\\\\\\\");
@@ -77,7 +67,7 @@ public class HUFileUpload extends Library{
 		uploadBtn.get(1).click();
 		
 		Thread.sleep(2000);
-		
-		
+
+
 }
 }

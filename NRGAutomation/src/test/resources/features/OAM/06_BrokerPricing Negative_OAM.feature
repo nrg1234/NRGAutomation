@@ -1,4 +1,4 @@
-@Enrollment
+@OAM
 Feature: Negative validations for Broker Enrollment < 50Kwh from OAM
 
   @TC_010_Multiple

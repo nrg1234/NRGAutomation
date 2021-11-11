@@ -1,4 +1,4 @@
-@Enrollment
+@OAM
 Feature: Pricing Link permission validation for different OAM users
 
   @TC_009_Pricing

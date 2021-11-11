@@ -13,8 +13,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
-public class SeleniumUtil extends Library {
-    public SeleniumUtil(WebDriver driver) {
+public class Reports extends Library {
+    public Reports(WebDriver driver) {
         Library.driver = driver;
         PageFactory.initElements(driver, this);
     }

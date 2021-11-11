@@ -138,7 +138,7 @@ WebDriver driver;
 		try {
 			(new WebDriverWait(driver, ConstantVariables.explicitWait))
 					.until(ExpectedConditions.elementToBeClickable(element));
-			if (element.isSelected() == false
+			if (!element.isSelected()
 					&& (option.equalsIgnoreCase("check") || option.equalsIgnoreCase("select"))) {
 				element.click();
 				log.info("Checkbox is checked");
@@ -148,7 +148,7 @@ WebDriver driver;
 					&& (option.equalsIgnoreCase("uncheck") || option.equalsIgnoreCase("unselect"))) {
 				element.click();
 				log.info("Checkbox is unchecked");
-			} else if (element.isSelected() == false
+			} else if (!element.isSelected()
 					&& (option.equalsIgnoreCase("uncheck") || option.equalsIgnoreCase("unselect")))
 				log.info("Checkbox already unchecked");
 		} catch (Exception e) {

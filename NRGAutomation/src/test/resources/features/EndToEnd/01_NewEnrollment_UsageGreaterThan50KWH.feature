@@ -4,21 +4,21 @@ Feature: New Enrollment with usage > 50Kwh
   @EndToEnd @TC_001_NewEnrollment_SingleCustomer_FixedProduct
   Scenario: Validate new Enrollment for a single customer with usage > 50Kwh with Fixed product
     Given Sales person successfully logged into DSP
+    #AND take the test data from DB Query/XML/XLSX
     Then make sure he/she is in landing page
-    And Turn off WOLR view if enabled
-    When Add New Opportunity in DSP
-    When Add Customer to the new Opty
-    When Add Sites to the new Opty
-    Then View Credit
-    When Login to Siebel as BA
-    Then Approves Credit
-    When Login to VHOS as Sales Person
-    Then Validate Opty in VHOS
-    And price a deal with Fixed product in DSP
+    And <DSP> Turn off WOLR view if enabled
+    When DSP: Add New Opportunity in DSP
+    When DSP: Add Customer to the new Opty
+    When DSP: Add Sites to the new Opty
+    Then DSP: View Credit
+    When SIEBEL : Login to Siebel as BA
+    Then SIEBEL : Approves Credit
+    When VHOS : Login to VHOS as Sales Person
+    Then VHOS : Validate Opty in VHOS
+    And VHOS : price a deal with Fixed product in DSP
     Then Generate Contract in DSP
     Then Make sure the contract is generated
     And Send generated contract to customer email
-    #Then close the deal
 
   @TC_002_NewEnrollment_AggregateCustomer_IndexProduct
   Scenario: Validate new Enrollment for a aggregate customer with usage > 50Kwh with Index product
@@ -47,7 +47,8 @@ Feature: New Enrollment with usage > 50Kwh
     Then Login to Siebel as BAnalyst
     Then Validate losses,prices,voluntary recs,meterfee and deal closed status in seibel 
     Then Login to VHOS as Sales Personal
-    Then Validate losses,prices,voluntary recs,meterfee and deal closed status in VHOS 
+    Then Validate losses,prices,voluntary recs,meterfee and deal closed status in VHOS
+    When Add Customer to the new Opty
 
   @TC_014_StaggeredSite
   Scenario: Validate StaggeredSite Enrollment for a single customer with usage > 50Kwh with Fixed product
