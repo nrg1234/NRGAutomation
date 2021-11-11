@@ -19,17 +19,13 @@ import java.util.Properties;
  * @author jxavier Application hooks to launch browser, quit browser and capture
  * screenshots
  */
-public class ApplicationHooks extends Library {
+public class ApplicationHooks {
     public static Scenario scenario;
     Properties prop;
     private DriverFactory driverFactory;
     private ConfigReader configReader;
     private WebDriver driver;
     private final Logger log = Logger.getLogger(ApplicationHooks.class);
-    public ApplicationHooks(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
 
     /**
      * initializes config properties

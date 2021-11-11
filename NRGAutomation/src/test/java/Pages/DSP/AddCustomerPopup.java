@@ -10,8 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import Baseclass.Library;
 import Utilities.CommonFunctions;
 
-public class AddCustomerPopup extends Library{
-
+public class AddCustomerPopup {
+WebDriver driver;
 	public  AddCustomerPopup(WebDriver driver)  {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -49,7 +49,7 @@ public class AddCustomerPopup extends Library{
      * Add customer to opportunity.
      */
 	
-	public void AddCustomertoOpportunity(Map<String,Object> data) throws Throwable  {
+	public AddSitesPopup AddCustomertoOpportunity(Map<String,Object> data) throws Throwable  {
 		CommonFunctions functions=new CommonFunctions();
 
 		// Click add customer button
@@ -76,5 +76,7 @@ public class AddCustomerPopup extends Library{
         
         //select Create New Deal from the Popup
         functions.click(driver, createNewDealBtn);
+        
+        return new AddSitesPopup(driver);
 	}
 }

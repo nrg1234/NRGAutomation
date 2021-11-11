@@ -5,7 +5,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import Baseclass.Library;
 
-public class Validatequotepricing extends Library {
+public class Validatequotepricing  {
+	
+	WebDriver driver;
     LandingPage Dsp = new LandingPage(driver);
  
 

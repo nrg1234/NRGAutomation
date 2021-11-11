@@ -6,11 +6,11 @@ import org.openqa.selenium.support.PageFactory;
 import Baseclass.Library;
 import Pages.DSP.LandingPage;
 
-public class ValidatelossesVhos extends Library {
-    LandingPage Dsp = new LandingPage(driver);
+public class ValidatelossesVhos {
+   //LandingPage Dsp = new LandingPage(driver);
  
 
-
+WebDriver driver;
 public ValidatelossesVhos (WebDriver driver) {
     this.driver = driver;
     PageFactory.initElements(driver, this);

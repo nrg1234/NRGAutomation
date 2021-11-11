@@ -1,0 +1,56 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "comments": [
+          {
+            "line": 3,
+            "value": "#This Feature is for new enrollment customers for Usage greater than 50KWH"
+          }
+        ],
+        "line": 5,
+        "name": "Validate new Enrollment for a single customer with usage \u003e 50Kwh with Fixed product",
+        "description": "",
+        "id": "new-enrollment-with-usage-\u003e-50kwh;validate-new-enrollment-for-a-single-customer-with-usage-\u003e-50kwh-with-fixed-product",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2482465300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Sales person successfully logged into DSP",
+            "match": {
+              "location": "LoginDSP.user_is_on_Url_Login_screen()"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "line": 4,
+            "name": "@EndToEnd"
+          },
+          {
+            "line": 4,
+            "name": "@TC_001_NewEnrollment_SingleCustomer_FixedProduct"
+          }
+        ]
+      }
+    ],
+    "name": "New Enrollment with usage \u003e 50Kwh",
+    "description": "",
+    "id": "new-enrollment-with-usage-\u003e-50kwh",
+    "keyword": "Feature",
+    "uri": "EndToEnd/01_NewEnrollment_UsageGreaterThan50KWH.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@Enrollment"
+      }
+    ]
+  }
+]

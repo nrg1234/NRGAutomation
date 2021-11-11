@@ -9,9 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import Baseclass.Library;
 import Utilities.CommonFunctions;
+import Utilities.Reports;
 
-public class SendContracttoCustomer extends Library {
-
+public class SendContracttoCustomer  {
+	WebDriver driver;
 	public  SendContracttoCustomer(WebDriver driver)  {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -57,6 +58,6 @@ public class SendContracttoCustomer extends Library {
 			System.err.println("Failed to Thread.sleeo()!");
 			e.printStackTrace();
 		}
-   	
+   	//return new Reports(driver);
    }
 }

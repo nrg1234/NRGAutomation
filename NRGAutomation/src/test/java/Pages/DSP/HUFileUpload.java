@@ -12,9 +12,9 @@ import org.openqa.selenium.support.PageFactory;
 import Baseclass.Library;
 import Utilities.CommonFunctions;
 
-public class HUFileUpload extends Library{
+public class HUFileUpload {
 
-	
+	WebDriver driver;
 	public  HUFileUpload(WebDriver driver)  {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);

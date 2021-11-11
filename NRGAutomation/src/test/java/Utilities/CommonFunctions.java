@@ -1,33 +1,31 @@
 package Utilities;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Base64;
+import java.util.Date;
+import java.util.List;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 
 /**
  * @author jxavier general utility contains selenium wrapper functions
  */
 public class CommonFunctions {
-
-WebDriver driver;
+static WebDriver driver;
 	private Logger log = Logger.getLogger(CommonFunctions.class);
 
 	/**
@@ -446,11 +444,12 @@ WebDriver driver;
 	public void longWait() throws InterruptedException {
 		Thread.sleep(30000);
 	}
-
-	/*
-	 * Method to Scroll to an element
-	 */
 	
+	
+	/**
+	 * @param //driver
+	 *           Method to Scroll to an element
+	 */
 	public void scrollToElement(WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		int yaxis = element.getLocation().getY();
@@ -459,9 +458,9 @@ WebDriver driver;
 		js.executeScript("scroll(0, "+scrollHeight+");");
 	}
 	
-	
-	/*
-	 * Waits till the Element becomes visible
+	/**
+	 * @param //driver
+	 *           Waits till the Element becomes visible
 	 */
 		public void waitForvisibility(WebElement element,int seconds) {
 			try {
@@ -471,10 +470,12 @@ WebDriver driver;
 
 			}
 	}
-	/*
-	 * Waits till the Element becomes invisible
-	 */
-	
+		
+		/**
+		 * @param //driver
+		 *           Waits till the Element becomes invisible
+		 */
+		
 		public void waitForinvisibility(WebElement element,int seconds) {
 			try {
 				WebDriverWait wait = new WebDriverWait(driver, seconds);
@@ -484,7 +485,11 @@ WebDriver driver;
 			}
 	}
 
-		//File upload by Robot Class
+		/**
+		 * @param //driver
+		 *           This Method is to Import HU File using Robot
+		 */
+	
 	    public void uploadFileWithRobot (String filePath) {
 	        StringSelection stringSelection = new StringSelection(filePath);
 	        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -511,5 +516,52 @@ WebDriver driver;
 	    }
 		
 	
+	    /**
+		 * @param //driver
+		 *          This Method is for capturing Screenshots
+		 */
+	    public static String getBase64Screenshot() throws IOException {
+			String Base64StringOfScreenshot = "";
+			TakesScreenshot screen=(TakesScreenshot)driver;
+			File src=screen.getScreenshotAs(OutputType.FILE);
+
+			Date date = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("ddMMYYYY_HHmmss");
+			String sDate = sdf.format(date);
+			FileUtils.copyFile(src, new File("./Screenshots" + "image_" + sDate + ".png"));
+
+			byte[] fileContent = FileUtils.readFileToByteArray(src);
+			Base64StringOfScreenshot = "data:image/png;base64," + Base64.getEncoder().encodeToString(fileContent);
+			return Base64StringOfScreenshot;
+		}
+
+		public static byte[] getByteScreenshot() throws IOException {
+			File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			byte[]filecontent=FileUtils.readFileToByteArray(src);
+			return filecontent;
+		}
+		
+		
+		 /**
+		 * @param //driver
+		 *          This Method is for Encrypting the Password
+		 */
+		 public String Encryption() throws IOException {
+		        ConfigReader config = new ConfigReader();
+		        Properties prop = config.init_properties();
+		        String encPass = prop.getProperty("SiebelPassword");
+		        System.out.println(encPass);
+
+		        byte[] decpass = Base64.getDecoder().decode(encPass);
+
+		        String passNew = new String(decpass);
+		        System.out.println(passNew);
+
+		        //Storing and Returning the text into a String
+		        final String encryptedpassword = passNew;
+		        System.out.println(encryptedpassword);
+		        return encryptedpassword;
+
+		    }
 
 }

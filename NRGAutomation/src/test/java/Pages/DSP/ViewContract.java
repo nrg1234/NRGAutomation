@@ -8,8 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import Baseclass.Library;
 import Utilities.CommonFunctions;
 
-public class ViewContract extends Library{
-	
+public class ViewContract {
+	WebDriver driver;
 	public  ViewContract(WebDriver driver)  {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -21,7 +21,7 @@ public class ViewContract extends Library{
 	  /*
    	 * View contracts 
    	 */
-       public void contractcreation()throws Throwable {
+       public SendContracttoCustomer contractcreation()throws Throwable {
     	   CommonFunctions functions=new CommonFunctions();
     	
     	  functions.click(driver,contractTab);
@@ -32,6 +32,6 @@ public class ViewContract extends Library{
    			System.err.println("Failed to Thread.sleep()!");
    			e.printStackTrace();
    		}*/
-    	   
+    	   return new SendContracttoCustomer(driver);
        }
 }

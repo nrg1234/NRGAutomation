@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.Properties;
 
-public class AddSitesPopup extends Library {
+public class AddSitesPopup  {
 
     @FindBy(xpath = "//span[@class='icon icon-large icon-caret icon-caret-right brand-primary']")
     WebElement sitesComponentCart;
@@ -32,7 +32,8 @@ public class AddSitesPopup extends Library {
     WebElement processHU;
     @FindBy(xpath = "//button[contains(text(), 'Credit')]")
     WebElement creditTAB;
-
+    
+    WebDriver driver;
     public AddSitesPopup(WebDriver driver) {
         Library.driver = driver;
         PageFactory.initElements(driver, this);
@@ -76,4 +77,8 @@ public class AddSitesPopup extends Library {
         return OpportunityID;
     }
 
+    
+    public ViewCredit driver() {
+    	return new ViewCredit(driver);
+    }
 }

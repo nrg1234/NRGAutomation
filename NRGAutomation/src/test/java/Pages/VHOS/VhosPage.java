@@ -1,7 +1,9 @@
 package Pages.VHOS;
 
 import Baseclass.Library;
+import Pages.DSP.GenerateContract;
 import Pages.DSP.LandingPage;
+import Pages.DSP.PriceaDeal;
 import Utilities.CommonFunctions;
 import Utilities.ConfigReader;
 import org.openqa.selenium.By;
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Properties;
 
-public class VhosPage extends Library {
+public class VhosPage  {
 
     @FindBy(xpath = "//a[contains(text(), 'here')]")
     WebElement clickhereButton;
@@ -25,7 +27,7 @@ public class VhosPage extends Library {
     WebElement searchResult;
     @FindBy(xpath = "//input[@id='A3574:sff2:searchString2']")
     WebElement searchfieldinVHOS;
-
+WebDriver driver;
     public VhosPage(WebDriver driver) {
         Library.driver = driver;
         PageFactory.initElements(driver, this);
@@ -43,8 +45,8 @@ public class VhosPage extends Library {
         }
     }
 
-    public LandingPage ValidateOpportunitydetailsinVHOS(String Optyid) throws Throwable {
-        LandingPage Dsp = new LandingPage(driver);
+    public PriceaDeal ValidateOpportunitydetailsinVHOS(String Optyid) throws Throwable {
+        //LandingPage Dsp = new LandingPage(driver);
         CommonFunctions functions = new CommonFunctions();
 
         System.out.println("passing the string value from Add sites to the OPty method:" + Optyid);
@@ -73,6 +75,6 @@ public class VhosPage extends Library {
 
         //switch to the parent window
         driver.switchTo().window(tabs2.get(0));
-        return new LandingPage(driver);
+        return new PriceaDeal(driver);
     }
 }

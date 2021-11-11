@@ -13,14 +13,14 @@ import Baseclass.Library;
 import Utilities.CommonFunctions;
 import Utilities.ConfigReader;
 
-public class LoginVhos extends Library{
-	
+public class LoginVhos {
+	WebDriver driver;
 	public LoginVhos(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void loginVhos() throws Throwable {
+	public VhosPage loginVhos() throws Throwable {
 	 //DSPHomePage Dsp=new DSPHomePage(driver);
 	 CommonFunctions functions=new CommonFunctions();
 	 ConfigReader config=new ConfigReader();
@@ -35,7 +35,7 @@ public class LoginVhos extends Library{
 	  	    ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
 	  	    driver.switchTo().window(tabs2.get(1));
 	  	driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS); 
-
+return new VhosPage(driver);
 	  	
 }
 }

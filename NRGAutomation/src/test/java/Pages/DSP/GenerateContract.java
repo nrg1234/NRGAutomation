@@ -12,8 +12,8 @@ import org.openqa.selenium.support.PageFactory;
 import Baseclass.Library;
 import Utilities.CommonFunctions;
 
-public class GenerateContract extends Library {
-	
+public class GenerateContract  {
+	WebDriver driver;
 	public  GenerateContract(WebDriver driver)  {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -49,7 +49,7 @@ public class GenerateContract extends Library {
    	 * Generate contract workflow.
    	 */
        
-       public void GenerateContract(Map<String,Object> data)throws Throwable  {
+       public ViewContract ContractGeneration(Map<String,Object> data)throws Throwable  {
 
     	   CommonFunctions functions=new CommonFunctions();
 
@@ -109,5 +109,6 @@ public class GenerateContract extends Library {
       			System.err.println("Failed to Thread.sleep()!");
       			e.printStackTrace();
       		}
+    	   return new ViewContract(driver);
 }
 }

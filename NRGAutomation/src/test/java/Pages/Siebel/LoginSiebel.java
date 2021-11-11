@@ -14,23 +14,23 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Properties;
 
-public class LoginSiebel extends Library {
+public class LoginSiebel  {
 
-    LandingPage Dsp = new LandingPage(driver);
+    //LandingPage Dsp = new LandingPage(driver);
     @FindBy(xpath = "//input[@name='SWEUserName']")
     WebElement siebelUserName;
     @FindBy(xpath = "//input[@name='SWEPassword']")
     WebElement siebelPassword;
     @FindBy(xpath = "//a[@id='s_swepi_22']")
     WebElement submitBtn;
-
+WebDriver driver;
     public LoginSiebel(WebDriver driver) {
         Library.driver = driver;
         PageFactory.initElements(driver, this);
 
     }
 
-    public void LoginSiebel(String password) throws Throwable {
+    public BAApprovescreditinSiebel LoginSiebel(String password) throws Throwable {
         CommonFunctions functions = new CommonFunctions();
         System.out.println("passing the string value from Addsites to the OPty method:" + password);
         ConfigReader config = new ConfigReader();
@@ -51,6 +51,6 @@ public class LoginSiebel extends Library {
 
         // Log in
         functions.click(driver, submitBtn);
-
+return new BAApprovescreditinSiebel(driver);
     }
 }

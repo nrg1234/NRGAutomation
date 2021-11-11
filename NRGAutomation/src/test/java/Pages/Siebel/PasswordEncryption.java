@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.Properties;
 
-public class PasswordEncryption extends Library {
+public class PasswordEncryption  {
 
-
+WebDriver driver;
     public PasswordEncryption(WebDriver driver) {
         Library.driver = driver;
         PageFactory.initElements(driver, this);

@@ -3,6 +3,7 @@ package Pages.Siebel;
 
 import Baseclass.Library;
 import Pages.DSP.LandingPage;
+import Pages.VHOS.LoginVhos;
 import Utilities.CommonFunctions;
 import Utilities.ConfigReader;
 import org.openqa.selenium.*;
@@ -16,8 +17,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Properties;
 
-public class BAApprovescreditinSiebel extends Library {
-    LandingPage Dsp = new LandingPage(driver);
+public class BAApprovescreditinSiebel  {
+   // LandingPage Dsp = new LandingPage(driver);
 
     @FindBy(xpath = "//a[contains(text(), 'Opportunities')]")
     WebElement opportunitiesTabsiebel;
@@ -61,13 +62,13 @@ public class BAApprovescreditinSiebel extends Library {
     WebElement calendarDoneBtn;
     @FindBy(xpath = "//a[contains(text(), '17')]")
     WebElement calendarDate;
-
+WebDriver driver;
     public BAApprovescreditinSiebel(WebDriver driver) {
         Library.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public void BAApprovescreditinSiebel(Map<String, Object> data, String Optyid) throws Throwable {
+    public LoginVhos BAApprovescreditinSiebel(Map<String, Object> data, String Optyid) throws Throwable {
         CommonFunctions functions = new CommonFunctions();
         System.out.println("passing the string value from AddsitestotheoPty method:" + Optyid);
         ConfigReader config = new ConfigReader();
@@ -213,7 +214,7 @@ public class BAApprovescreditinSiebel extends Library {
         //switch to the parent window
         driver.switchTo().window(tabs2.get(0));
 
-
+return new LoginVhos(driver);
     }
 
 }

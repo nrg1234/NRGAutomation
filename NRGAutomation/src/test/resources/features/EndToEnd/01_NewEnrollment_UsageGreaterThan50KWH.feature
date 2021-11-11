@@ -3,11 +3,9 @@ Feature: New Enrollment with usage > 50Kwh
 #This Feature is for new enrollment customers for Usage greater than 50KWH
   @EndToEnd @TC_001_NewEnrollment_SingleCustomer_FixedProduct
   Scenario: Validate new Enrollment for a single customer with usage > 50Kwh with Fixed product
-    Given Sales person successfully logged into DSP
-    #AND take the test data from DB Query/XML/XLSX
-    Then make sure he/she is in landing page
-    And <DSP> Turn off WOLR view if enabled
-    When DSP: Add New Opportunity in DSP
+    Given DSP: make sure user is in landing page
+    And DSP: Turn off WOLR view if enabled
+    When DSP: Add New Opportunity
     When DSP: Add Customer to the new Opty
     When DSP: Add Sites to the new Opty
     Then DSP: View Credit
@@ -16,9 +14,9 @@ Feature: New Enrollment with usage > 50Kwh
     When VHOS : Login to VHOS as Sales Person
     Then VHOS : Validate Opty in VHOS
     And VHOS : price a deal with Fixed product in DSP
-    Then Generate Contract in DSP
-    Then Make sure the contract is generated
-    And Send generated contract to customer email
+    Then DSP: Generate Contract in DSP
+    Then DSP: Make sure the contract is generated
+    And DSP: Send generated contract to customer email
 
   @TC_002_NewEnrollment_AggregateCustomer_IndexProduct
   Scenario: Validate new Enrollment for a aggregate customer with usage > 50Kwh with Index product

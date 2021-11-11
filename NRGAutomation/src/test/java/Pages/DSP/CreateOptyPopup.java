@@ -14,8 +14,8 @@ import org.openqa.selenium.support.PageFactory;
 import Baseclass.Library;
 import Utilities.CommonFunctions;
 
-public class CreateOptyPopup extends Library {
-	
+public class CreateOptyPopup  {
+	WebDriver driver;
 	public  CreateOptyPopup(WebDriver driver)  {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -61,7 +61,7 @@ public class CreateOptyPopup extends Library {
 	/*
 	 * Create new opportunity.
 	 */
-public void CreateNewOpportunity(Map<String,Object> data) throws Throwable {
+public AddCustomerPopup CreateNewOpportunity(Map<String,Object> data) throws Throwable {
 CommonFunctions functions=new CommonFunctions();
 functions.click(driver,createNewOptyBtn);
 
@@ -105,7 +105,6 @@ assertTrue("Newly created opty name should be displayed", randomOptyName.isDispl
 		}
         
 System.out.println("Adding customer to opty.");
+return new AddCustomerPopup(driver);
 }
-
-	
 }

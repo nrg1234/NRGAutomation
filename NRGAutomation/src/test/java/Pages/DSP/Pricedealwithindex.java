@@ -5,7 +5,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import Baseclass.Library;
 
-public class Pricedealwithindex extends Library {
+public class Pricedealwithindex  {
+	WebDriver driver;
     LandingPage Dsp = new LandingPage(driver);
  
 

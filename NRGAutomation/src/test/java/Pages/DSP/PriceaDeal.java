@@ -14,8 +14,8 @@ import org.openqa.selenium.support.PageFactory;
 import Baseclass.Library;
 import Utilities.CommonFunctions;
 
-public class PriceaDeal extends Library {
-
+public class PriceaDeal  {
+	WebDriver driver;
 	public  PriceaDeal(WebDriver driver)  {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -51,7 +51,7 @@ public class PriceaDeal extends Library {
 	 /*
      * Price a deal.
      */
-    public void priceadeal(Map<String,Object> data)throws Throwable  {
+    public GenerateContract priceadeal(Map<String,Object> data)throws Throwable  {
  	   CommonFunctions functions=new CommonFunctions();
  	// Navigate to quotes page
     	assertTrue("Quotes page button should be there", quotesTAB.isDisplayed());
@@ -87,6 +87,6 @@ public class PriceaDeal extends Library {
  	// Select a product
  	productSelectBtn.get(1).click();
  	
- 	
+ 	return new GenerateContract(driver);
     }
 }

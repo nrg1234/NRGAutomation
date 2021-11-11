@@ -9,8 +9,8 @@ import Baseclass.Library;
 import Pages.Siebel.LoginSiebel;
 import Utilities.CommonFunctions;
 
-public class ViewCredit extends Library{
-	
+public class ViewCredit {
+	WebDriver driver;
 	public  ViewCredit(WebDriver driver)  {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -28,4 +28,5 @@ public class ViewCredit extends Library{
 	functions.click(driver,creditTAB);
 	return new LoginSiebel(driver);
 	}
+
 }
