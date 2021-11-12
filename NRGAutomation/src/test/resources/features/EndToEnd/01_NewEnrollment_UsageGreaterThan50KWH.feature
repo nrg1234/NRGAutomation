@@ -9,26 +9,25 @@ Feature: New Enrollment with usage > 50Kwh
     When DSP: Add Customer to the new Opty
     When DSP: Add Sites to the new Opty
     Then DSP: View Credit
-    When SIEBEL : Login to Siebel as BA
-    Then SIEBEL : Approves Credit
-    When VHOS : Login to VHOS as Sales Person
-    Then VHOS : Validate Opty in VHOS
-    And VHOS : price a deal with Fixed product in DSP
+    When SIEBEL: Login to Siebel as BA
+    Then SIEBEL: Approves Credit
+    When VHOS: Login to VHOS as Sales Person
+    Then VHOS: Validate Opty in VHOS
+    And DSP: price a deal with Fixed product
     Then DSP: Generate Contract in DSP
     Then DSP: Make sure the contract is generated
     And DSP: Send generated contract to customer email
 
   @TC_002_NewEnrollment_AggregateCustomer_IndexProduct
   Scenario: Validate new Enrollment for a aggregate customer with usage > 50Kwh with Index product
-    Given Sales person successfully logged into DSP
-    Then make sure he/she in landing page
-    Then Turn off WOLR view
+    Given DSP: make sure user is in landing page
+    And DSP: Turn off WOLR view if enabled
     When  Add New Opportunity in DSP with customer sales group as Mid Market
-    When Add  Customer to the new Opportunity
-    Then Login to Siebel as BAnalyst
-    Then Validate Customer is sucessfully created in Seibel 
-    Then Add Sites to the new Opportunity
-    Then Login to Seibel as BAnalyst 
+    When DSP: Add Customer to the new Opty
+    Then SIEBEL: Login to Siebel as BA
+    Then SIEBEL: Validate Customer is successfully created
+    Then DSP: Add Sites to the new Opty
+    Then SIEBEL: Login to Siebel as BA
     Then Validate Customer and Sites are correctly mapped to oppurtunities 
     Then View Credit in Dsp
     When Login to VHOS as Sales Personal

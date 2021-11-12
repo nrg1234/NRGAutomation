@@ -108,7 +108,7 @@ package Utilities;
 	            }
 	            return resultList;
 	        } catch (Exception e) {
-	            log.error("Unable to execute query in Cassandra. " + e.getStackTrace());
+	            log.error("Unable to execute query " + e.getStackTrace());
 	            return null;
 	        } finally {
 	            closeCassandraConnection();
