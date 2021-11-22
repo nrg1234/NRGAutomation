@@ -102,7 +102,7 @@ static WebDriver driver;
 	 */
 	public void click(WebDriver driver, By locator) {
 		try {
-			(new WebDriverWait(driver, ConstantVariables.explicitWait))
+			(new WebDriverWait(driver, ConstantVariables.explicitWaitSiebel))
 					.until(ExpectedConditions.elementToBeClickable(locator));
 			driver.findElement(locator).click();
 		} catch (Exception e) {
@@ -124,6 +124,8 @@ static WebDriver driver;
 			log.error("unable to click on element. " + e);
 		}
 	}
+	
+
 
 	/**
 	 * @param driver
@@ -434,18 +436,37 @@ static WebDriver driver;
 	}
 
 	public void shortWait() throws InterruptedException {
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 	}
 
 	public void mediumWait() throws InterruptedException {
-		Thread.sleep(20000);
+		Thread.sleep(23000);
+	}
+	
+	public void midWait() throws InterruptedException {
+		Thread.sleep(30000);
 	}
 
 	public void longWait() throws InterruptedException {
-		Thread.sleep(30000);
+		Thread.sleep(60000);
+	}
+	
+	public void intermediatewait() throws InterruptedException {
+		Thread.sleep(10000);
+	}
+	
+	public void dealconversion() throws InterruptedException {
+		Thread.sleep(90000);
+	}
+	
+	public void waitforcontactgeneration() throws InterruptedException {
+		Thread.sleep(600000);
 	}
 	
 	
+	
+	
+
 	/**
 	 * @param //driver
 	 *           Method to Scroll to an element
@@ -462,13 +483,31 @@ static WebDriver driver;
 	 * @param //driver
 	 *           Waits till the Element becomes visible
 	 */
-		public void waitForvisibility(WebElement element,int seconds) {
-			try {
-				WebDriverWait wait = new WebDriverWait(driver, seconds);
-				wait.until(ExpectedConditions.visibilityOfElementLocated((By) element));
-			}catch(Exception e) {
+	public void waitForvisibility(WebDriver driver, WebElement element,int seconds) {
+		try {
+			(new WebDriverWait (driver, seconds))
+			.until(ExpectedConditions.visibilityOfElementLocated((By) element));
+		}catch(Exception e) {
 
-			}
+		}
+}
+	public void waitForvisibility1(WebDriver driver,By opportunitiesTabsiebe,int seconds) {
+		try {
+			(new WebDriverWait (driver, seconds))
+			.until(ExpectedConditions.visibilityOfElementLocated( opportunitiesTabsiebe));
+		}catch(Exception e) {
+
+		}
+}
+	
+	public boolean waitFor(WebDriver driver,WebElement element,int seconds) {
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
+		try {
+			wait.until(ExpectedConditions.visibilityOf(element));
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
 	}
 		
 		/**
@@ -476,7 +515,7 @@ static WebDriver driver;
 		 *           Waits till the Element becomes invisible
 		 */
 		
-		public void waitForinvisibility(WebElement element,int seconds) {
+		public void waitForinvisibility(WebDriver driver,WebElement element,int seconds) {
 			try {
 				WebDriverWait wait = new WebDriverWait(driver, seconds);
 				wait.until(ExpectedConditions.invisibilityOfElementLocated((By) element));

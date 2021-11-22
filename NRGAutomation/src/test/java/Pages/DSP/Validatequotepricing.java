@@ -1,25 +1,17 @@
 package Pages.DSP;
 
+import apphooks.Base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import Baseclass.Library;
+public class Validatequotepricing {
 
-public class Validatequotepricing  {
-	
-	WebDriver driver;
-    LandingPage Dsp = new LandingPage(driver);
- 
+    WebDriver driver;
 
-
-public Validatequotepricing (WebDriver driver) {
-    this.driver = driver;
-    PageFactory.initElements(driver, this);
-}
-
-
-
-
+    public Validatequotepricing(Base base) {
+        this.driver = Base.driver;
+        PageFactory.initElements(driver, this);
+    }
 }
 
 

@@ -1,26 +1,23 @@
 package Pages.DSP;
 
-import Baseclass.Library;
 import Utilities.CommonFunctions;
 import Utilities.ConfigReader;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
-
-import org.apache.log4j.Logger;
+import apphooks.Base;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Properties;
 
 public class LandingPage  {
+
+    WebDriver driver;
+    public LandingPage(Base base) {
+        this.driver = base.driver;
+        PageFactory.initElements(driver, this);
+    }
 
     @FindBy(xpath="//button[contains(text(), 'Clear Filters')]")
     WebElement clearFilterBtn;
@@ -28,16 +25,13 @@ public class LandingPage  {
     @FindBy(xpath="//button[@class='btn btn-link mdi wolr-toggle wolr-on mdi-toggle-switch']")
     WebElement wolrToggle;
 
-    Logger LOG = Logger.getLogger(LandingPage.class.getName());
-    WebDriver driver;
-    public LandingPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
+    // Logger LOG = Logger.getLogger(LandingPage.class.getName());
 
-    // Navigate to DSP
+    /*
+     *Navigate to DSP
+     */
     public void launchurl()  {
-        CommonFunctions functions = new CommonFunctions();
+
         ConfigReader config = new ConfigReader();
         Properties prop = config.init_properties();
         String url = prop.getProperty("dsp-url");
@@ -51,7 +45,6 @@ public class LandingPage  {
      *This Method is for clicking on Advanced Options Button and hyperlink to DSP Url navigation in Dev Environment
      */
     public void AdvancedOptions()  {
-        //CommonFunctions functions = new CommonFunctions();
         driver.findElement(By.xpath("//button[@id='details-button']")).click();
         driver.findElement(By.xpath("//a[@id='proceed-link']")).click();
     }
@@ -60,27 +53,27 @@ public class LandingPage  {
     /*
      * validate the Title
      */
-    public void TitleValidation() throws Throwable {
+    public void TitleValidation()  {
 
         if (driver.getTitle().equals("Digital Services Platform")) {
             System.out.println("Verification Successful - The correct title is displayed on the web page");
         } else {
             System.out.println("Verification Failed - An incorrect title is displayed on the web page");
         }
-       
     }
 
     /*
-     * Turn off the Toggle Button in Dsp
+     * Turn off the Toggle Button in DSP
      */
     public void Toggle(Boolean toggleEnabled) {
-        CommonFunctions functions=new CommonFunctions();
-        functions.waitForvisibility(wolrToggle,90);
-        if (wolrToggle.isSelected() != toggleEnabled ) {
-            functions.click(driver,wolrToggle);
-        }
+       CommonFunctions functions=new CommonFunctions();
+//        functions.waitForvisibility(wolrToggle,80);
+//        if (wolrToggle.isSelected() != toggleEnabled ) {
+//            functions.click(driver,wolrToggle);
+//        }
         functions.click(driver,clearFilterBtn);
         System.out.println("WOLR VIEW TOGGLE is disabled");
+       
     }
 }
 				

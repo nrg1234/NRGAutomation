@@ -12,19 +12,13 @@ import io.cucumber.junit.CucumberOptions;
 (
 		features = {"src/test/resources/features"},
 		tags="@EndToEnd",
-		glue = {"Stepdefinitions"},
-		plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+		glue = {"Stepdefinitions","apphooks"},
+		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		monochrome = true
 )
 //Running with cucumber class
 
 public class EndToEndTest
 {
-	//@AfterClass
-//	    public static void  extentReport()
-//	   {
-//	       Reporter.loadXMLConfig("./src/test/resources/Config/ExtentReports.xml");
-//	       Reporter.setSystemInfo("user", System.getProperty("user.name"));
-//	       Reporter.setSystemInfo("os", "Windows");
-//	       Reporter.setTestRunnerOutput("Sample test runner output message");
+	
 	   }

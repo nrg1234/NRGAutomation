@@ -1,6 +1,4 @@
 package Utilities;
-
-import Baseclass.Library;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.MediaEntityModelProvider;
 import org.apache.commons.io.FileUtils;
@@ -13,9 +11,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
-public class Reports extends Library {
+public class Reports  {
+	WebDriver driver;
     public Reports(WebDriver driver) {
-        Library.driver = driver;
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 

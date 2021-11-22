@@ -2,21 +2,20 @@ package Pages.DSP;
 
 import java.util.List;
 
+import apphooks.Base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import Baseclass.Library;
 import Utilities.CommonFunctions;
 
 public class HUFileUpload {
 
 	WebDriver driver;
-	public  HUFileUpload(WebDriver driver)  {
-		this.driver = driver;
+	public  HUFileUpload(Base base)  {
+		this.driver = base.driver;
 		PageFactory.initElements(driver, this);
 		}
 	
@@ -61,13 +60,13 @@ public class HUFileUpload {
 		
 		functions.uploadFileWithRobot(filePath);
 		
-		Thread.sleep(3000);
+		functions.shortWait();
 	
 		//Click Upload Button
+		
 		uploadBtn.get(1).click();
 		
-		Thread.sleep(2000);
-
+		functions.shortWait();
 
 }
 }

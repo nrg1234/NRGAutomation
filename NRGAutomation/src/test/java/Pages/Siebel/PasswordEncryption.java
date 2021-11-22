@@ -1,6 +1,4 @@
 package Pages.Siebel;
-
-import Baseclass.Library;
 import Utilities.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -13,7 +11,7 @@ public class PasswordEncryption  {
 
 WebDriver driver;
     public PasswordEncryption(WebDriver driver) {
-        Library.driver = driver;
+        this.driver = driver;
         PageFactory.initElements(driver, this);
 
     }

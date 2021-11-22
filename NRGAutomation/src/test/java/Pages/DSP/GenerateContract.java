@@ -2,20 +2,21 @@ package Pages.DSP;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
+import Utilities.ConfigReader;
+import apphooks.Base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import Baseclass.Library;
 import Utilities.CommonFunctions;
 
 public class GenerateContract  {
 	WebDriver driver;
-	public  GenerateContract(WebDriver driver)  {
-		this.driver = driver;
+	public  GenerateContract(Base base)  {
+		this.driver = base.driver;
 		PageFactory.initElements(driver, this);
 		}
 	@FindBy(xpath="//button[contains(text(), 'Generate Contract')]")
@@ -26,6 +27,9 @@ public class GenerateContract  {
 	
 	@FindBy(xpath="//select[@id='templateName']")
 	WebElement templateName;
+	
+	@FindAll(value = { @FindBy(xpath="//button[contains(text(), 'Enter Info')]")})
+	public List<WebElement> noticeAddress;
 	
 	@FindBy(xpath="//button[contains(text(), 'Enter Info')]")
 	WebElement noticeAddressBtn;
@@ -49,66 +53,141 @@ public class GenerateContract  {
    	 * Generate contract workflow.
    	 */
        
-       public ViewContract ContractGeneration(Map<String,Object> data)throws Throwable  {
+       public void ContractGeneration() throws Throwable  {
 
     	   CommonFunctions functions=new CommonFunctions();
+		   ConfigReader config = new ConfigReader();
+		   Properties prop = config.init_properties();
 
 		// Open generate contract modal
-		//waitForvisibility(generateContractModalBtn,10);
+	
 		functions.click(driver,generateContractModalBtn);
 
     	// Fill out modal
-		functions.setText(driver, dealOptionName, data.get("Dealoptionname").toString());
+		functions.setText(driver, dealOptionName, prop.getProperty("Dealoptionname"));
 
 		// Select the option using the visible text
-    	functions.selectDropdownByVisibleText(driver,templateName,data.get("TemplateName").toString());
+    	functions.selectDropdownByVisibleText(driver,templateName,prop.getProperty("TemplateName"));
 
 		// Add contact notice address
 		functions.click(driver,noticeAddressBtn);
 
 		// Wait for spinner to appear Contact Info
-    	try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			System.err.println("Failed to Thread.sleep()!");
-			e.printStackTrace();
-		}
+    	functions.intermediatewait();
+    	
     	// Selects contact name from the Dropdown
     	functions.click(driver,contactNameDropdown);
-    	contactNameValue.get(1).click();
+    	
+    	contactNameValue.get(0).click();
+    	
     	functions.click(driver,addContactToCustomerBtn);
     	
 		// Wait for spinner to appear Contact Info
-    	try {
-			Thread.sleep(20000);
-		} catch (InterruptedException e) {
-			System.err.println("Failed to Thread.sleep()!");
-			e.printStackTrace();
-		}
+    	functions.mediumWait();
     	
 		// Choose approver
-		functions.selectDropdownByVisibleText(driver,approverDropdown,data.get("Approver").toString());
+		functions.selectDropdownByVisibleText(driver,approverDropdown,prop.getProperty("Approver"));
 
 		// Generate contract
 		contractBtn.get(1).click();
     	
     	// Wait for spinner to Load
-    	try {
+    	functions.intermediatewait();
+
+    	System.out.println("Validating contract creation successful.");
+    	   
+    	// Wait for dealoption status to get Approved
+    	   functions.mediumWait();
+
+}
+
+
+/*
+	 * Generate contract workflow for Aggregate Customer.
+	 */
+   
+   public void ContractGenerationforAggregate(Map<String,Object> data)throws Throwable  {
+
+	   CommonFunctions functions=new CommonFunctions();
+
+	// Open generate contract modal
+
+	functions.click(driver,generateContractModalBtn);
+
+	// Fill out modal
+	functions.setText(driver, dealOptionName, data.get("Dealoptionname").toString());
+
+	// Select the option using the visible text
+	functions.selectDropdownByVisibleText(driver,templateName,"Short Form General Terms (100% Real Time Index)");
+
+	// Add contact notice address for 1st Customer
+	functions.click(driver,noticeAddressBtn);
+
+	// Wait for spinner to appear Contact Info
+	try {
+		Thread.sleep(10000);
+	} catch (InterruptedException e) {
+		System.err.println("Failed to Thread.sleep()!");
+		e.printStackTrace();
+	}
+	// Selects contact name from the Dropdown
+	functions.click(driver,contactNameDropdown);
+	contactNameValue.get(0).click();
+	functions.click(driver,addContactToCustomerBtn);
+	
+	// Wait for spinner to appear Contact Info
+	try {
+		Thread.sleep(20000);
+	} catch (InterruptedException e) {
+		System.err.println("Failed to Thread.sleep()!");
+		e.printStackTrace();
+	}
+	
+		// Add contact notice address for Second Customer
+		functions.click(driver,noticeAddressBtn);
+
+		// Wait for spinner to appear Contact Info
+		try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e) {
 			System.err.println("Failed to Thread.sleep()!");
 			e.printStackTrace();
 		}
+		// Selects contact name from the Dropdown
+		functions.click(driver,contactNameDropdown);
+		contactNameValue.get(0).click();
+		functions.click(driver,addContactToCustomerBtn);
+		
+		// Wait for spinner to appear Contact Info
+		try {
+			Thread.sleep(20000);
+		} catch (InterruptedException e) {
+			System.err.println("Failed to Thread.sleep()!");
+			e.printStackTrace();
+		}
+	// Choose approver
+	functions.selectDropdownByVisibleText(driver,approverDropdown,data.get("Approver").toString());
 
-    	System.out.println("Validating contract creation successful.");
-    	   
-    	// Wait for dealoption status to get Approved
-    	   try {
-      			Thread.sleep(80000);
-      		} catch (InterruptedException e) {
-      			System.err.println("Failed to Thread.sleep()!");
-      			e.printStackTrace();
-      		}
-    	   return new ViewContract(driver);
+	// Generate contract
+	contractBtn.get(1).click();
+	
+	// Wait for spinner to Load
+	try {
+		Thread.sleep(10000);
+	} catch (InterruptedException e) {
+		System.err.println("Failed to Thread.sleep()!");
+		e.printStackTrace();
+	}
+
+	System.out.println("Validating contract creation successful.");
+	   
+	// Wait for dealoption status to get Approved
+	   try {
+  			Thread.sleep(80000);
+  		} catch (InterruptedException e) {
+  			System.err.println("Failed to Thread.sleep()!");
+  			e.printStackTrace();
+  		}
+
 }
 }

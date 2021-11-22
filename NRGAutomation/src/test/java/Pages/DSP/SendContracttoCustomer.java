@@ -1,20 +1,21 @@
 package Pages.DSP;
 
 import java.util.Map;
+import java.util.Properties;
 
+import Utilities.ConfigReader;
+import apphooks.Base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import Baseclass.Library;
 import Utilities.CommonFunctions;
 import Utilities.Reports;
 
 public class SendContracttoCustomer  {
 	WebDriver driver;
-	public  SendContracttoCustomer(WebDriver driver)  {
-		this.driver = driver;
+	public  SendContracttoCustomer(Base base)  {
+		this.driver = base.driver;
 		PageFactory.initElements(driver, this);
 		}
 	
@@ -29,35 +30,26 @@ public class SendContracttoCustomer  {
 	
 	/*
    	 * Send Contract To Customer
-
    	 */
    	
    	// Open contract generation modal
-       public void Sendcontracttocustomer(Map<String,Object> data)throws Throwable  {
+       public void Sendcontracttocustomer()throws Throwable  {
 		   CommonFunctions functions=new CommonFunctions();
-    		
+		   ConfigReader config = new ConfigReader();
+		   Properties prop = config.init_properties();
+
    		functions.click(driver,sendContractToCustomerBtn);
 		   // Wait for spinner to Load
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				System.err.println("Failed to Thread.sleep()!");
-				e.printStackTrace();
-			}
+			functions.shortWait();
 
-   	// Enter email for contract
-   	functions.setText(driver, customerEmailInput, data.get("customerEmail").toString());
+			// Enter email for contract
+			functions.setText(driver, customerEmailInput, prop.getProperty("customer-email"));
    	
-   	// Send contract
-   	functions.click(driver,sendContractBtn);
+			// Send contract
+			functions.click(driver,sendContractBtn);
    	
-   	// Wait for modal to disappear
-   	try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			System.err.println("Failed to Thread.sleeo()!");
-			e.printStackTrace();
-		}
-   	//return new Reports(driver);
+			// Wait for modal to disappear
+   	
+			//return new Reports(driver);
    }
 }

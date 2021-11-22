@@ -4,20 +4,21 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
+import Utilities.ConfigReader;
+import apphooks.Base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import Baseclass.Library;
 import Utilities.CommonFunctions;
 
 public class PriceaDeal  {
 	WebDriver driver;
-	public  PriceaDeal(WebDriver driver)  {
-		this.driver = driver;
+	public  PriceaDeal(Base base)  {
+		this.driver = base.driver;
 		PageFactory.initElements(driver, this);
 		}
 	
@@ -48,24 +49,102 @@ public class PriceaDeal  {
 	@FindAll(value = { @FindBy(xpath="//span[contains(text(), 'Select')]") })
 	public List<WebElement> productSelectBtn;
 	
+	@FindBy(xpath="//li[@class='ng-star-inserted active']//a[contains(text(), 'Index')]")
+	WebElement IndexPriceBtn;
+	
+	@FindBy(xpath="//button[contains(text(),'Yes')]")
+	WebElement convert50kwBtn;
+
+	 @FindBy(xpath = "//*[@class='col-auto m-2 mr-auto d-none d-lg-block'][1]/h1")
+	    WebElement opportunityIDText;
+	
 	 /*
-     * Price a deal.
+     * Price a deal with Fixed Product.
      */
-    public GenerateContract priceadeal(Map<String,Object> data)throws Throwable  {
+    public void priceadeal()throws Throwable  {
  	   CommonFunctions functions=new CommonFunctions();
- 	// Navigate to quotes page
+		ConfigReader config = new ConfigReader();
+		Properties prop = config.init_properties();
+ 	   // Navigate to quotes page
     	assertTrue("Quotes page button should be there", quotesTAB.isDisplayed());
-    	//waitForvisibility(QuotesTAB,10);
     	functions.click(driver,quotesTAB);
     	
     	
   // Wait for spinner to appear when request is made to Siebel
- 	try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			System.err.println("Failed to Thread.sleep()!");
-			e.printStackTrace();
-		}
+    	functions.shortWait();
+ 	
+
+ 	//Updating Margin and DOA Margin Values
+ 	functions.setText(driver, marginfield, prop.getProperty("Margin"));
+ 	functions.setText(driver, doaMarginfield, prop.getProperty("DOAMargin"));
+ 	
+ 	//Calculate and save
+ 	functions.click(driver,calculateAndSave);
+ 	
+ 	
+ 	 // Wait for spinner to appear when request is made to Siebel
+ 	functions.midWait();
+ 	
+ 	// Select a product
+ 	productSelectBtn.get(1).click();
+
+    }
+
+    
+    /*
+     * Price a deal with Index Product.
+     */
+    public void priceadealwithindexproduct(Map<String,Object> data)throws Throwable  {
+    	   CommonFunctions functions=new CommonFunctions();
+    	// Navigate to quotes page
+    	assertTrue("Quotes page button should be there", quotesTAB.isDisplayed());
+    	functions.click(driver,quotesTAB);
+    	
+    	
+    // Wait for spinner to appear when request is made to Siebel
+    	try {
+    		Thread.sleep(5000);
+    	} catch (InterruptedException e) {
+    		System.err.println("Failed to Thread.sleep()!");
+    		e.printStackTrace();
+    	}
+    	
+    	//Clicks on Index Price Button
+    	functions.click(driver, IndexPriceBtn);
+
+    	//Updating Margin and DOA Margin Values
+    	functions.setText(driver, marginfield, data.get("Margin").toString());
+    	functions.setText(driver, doaMarginfield, data.get("DOAMargin").toString());
+    	
+    	//Calculate and save
+    	functions.click(driver,calculateAndSave);
+    	
+    	
+    	 // Wait for spinner to appear when request is made to Siebel
+    	try {
+    		Thread.sleep(30000);
+    	} catch (InterruptedException e) {
+    		System.err.println("Failed to Thread.sleep()!");
+    		e.printStackTrace();
+    	}
+    	
+    	// Select a product
+    	productSelectBtn.get(1).click();
+    	
+
+    }
+    /*
+     * Price a deal with Fixed Product for less than 50kw.
+     */
+    public void priceadeallessthan50(Map<String,Object> data)throws Throwable  {
+ 	   CommonFunctions functions=new CommonFunctions();
+ 	
+ 	   // Navigate to quotes page
+    	assertTrue("Quotes page button should be there", quotesTAB.isDisplayed());
+    	
+    	
+  // Wait for spinner to appear when request is made to Siebel
+    	functions.shortWait();
  	
 
  	//Updating Margin and DOA Margin Values
@@ -77,16 +156,12 @@ public class PriceaDeal  {
  	
  	
  	 // Wait for spinner to appear when request is made to Siebel
- 	try {
-			Thread.sleep(30000);
-		} catch (InterruptedException e) {
-			System.err.println("Failed to Thread.sleep()!");
-			e.printStackTrace();
-		}
+ 	functions.midWait();
  	
  	// Select a product
  	productSelectBtn.get(1).click();
- 	
- 	return new GenerateContract(driver);
+
     }
+
+    
 }

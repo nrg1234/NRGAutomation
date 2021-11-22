@@ -5,23 +5,17 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 import java.util.Map;
 
+import apphooks.Base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import Baseclass.Library;
 import Utilities.CommonFunctions;
 
 public class CreateOptyPopup  {
-	WebDriver driver;
-	public  CreateOptyPopup(WebDriver driver)  {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-		}
-	
-	
+
 	@FindBy(xpath="//button[contains(text(), 'Create New Opportunity')]")
 	WebElement createNewOptyBtn;
 	
@@ -58,10 +52,15 @@ public class CreateOptyPopup  {
 	@FindBy(xpath="//*[@id=\'navbar-2\']/form/div[1]/div/h1")
 	WebElement randomOptyName;
 
+	WebDriver driver;
+	public CreateOptyPopup(Base base) {
+		this.driver = base.driver;
+		PageFactory.initElements(driver, this);
+	}
 	/*
 	 * Create new opportunity.
 	 */
-public AddCustomerPopup CreateNewOpportunity(Map<String,Object> data) throws Throwable {
+public void CreateNewOpportunity(Map<String,Object> data) throws Throwable {
 CommonFunctions functions=new CommonFunctions();
 functions.click(driver,createNewOptyBtn);
 
@@ -95,16 +94,8 @@ List<WebElement> Createbutton= createBtn;
 		
 // Make sure opportunity was created
 assertTrue("Newly created opty name should be displayed", randomOptyName.isDisplayed());
-
-// Wait for modal to unload
-        try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			System.err.println("Failed to Thread.sleep()!");
-			e.printStackTrace();
-		}
         
 System.out.println("Adding customer to opty.");
-return new AddCustomerPopup(driver);
+
 }
 }

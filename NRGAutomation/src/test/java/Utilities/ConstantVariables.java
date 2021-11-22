@@ -7,6 +7,7 @@ public class ConstantVariables {
 
     public static final int implicitWait = 20;
     public static final int explicitWait = 20;
+    public static final int explicitWaitSiebel = 40;
     public static final int pageLoadWait = 30;
     public static final int shortWait = 2;
     public static final String sample_query = "SELECT * from Opportunity ";

@@ -1,11 +1,10 @@
 package Pages.VHOS;
-
-import Baseclass.Library;
 import Pages.DSP.GenerateContract;
 import Pages.DSP.LandingPage;
 import Pages.DSP.PriceaDeal;
 import Utilities.CommonFunctions;
 import Utilities.ConfigReader;
+import apphooks.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -28,24 +27,14 @@ public class VhosPage  {
     @FindBy(xpath = "//input[@id='A3574:sff2:searchString2']")
     WebElement searchfieldinVHOS;
 WebDriver driver;
-    public VhosPage(WebDriver driver) {
-        Library.driver = driver;
+    public VhosPage(Base base) {
+        this.driver = base.driver;
         PageFactory.initElements(driver, this);
     }
 
-    /*
-     * Waits till the Element becomes visible
-     */
-    public void waitForvisibility(WebElement element, int seconds) {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, seconds);
-            wait.until(ExpectedConditions.visibilityOfElementLocated((By) element));
-        } catch (Exception e) {
 
-        }
-    }
 
-    public PriceaDeal ValidateOpportunitydetailsinVHOS(String Optyid) throws Throwable {
+    public void ValidateOpportunitydetailsinVHOS(String Optyid) throws Throwable {
         //LandingPage Dsp = new LandingPage(driver);
         CommonFunctions functions = new CommonFunctions();
 
@@ -75,6 +64,6 @@ WebDriver driver;
 
         //switch to the parent window
         driver.switchTo().window(tabs2.get(0));
-        return new PriceaDeal(driver);
+
     }
 }

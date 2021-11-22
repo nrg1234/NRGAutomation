@@ -15,19 +15,17 @@
 
         <!-- defaults to https -->
 
-        <protocol>https</protocol>
+        <protocol>http</protocol>
         <!-- title of the document -->
         <documentTitle>NRG - Integration Automation Test Results - QA Automation Report</documentTitle>
         <!-- report name - displayed at top-nav -->
 
-        <reportName><![CDATA[
-                <img src="wm_logo.png" alt="Waste Management" style="float:left">
-            ]]></reportName>
+        <reportName>NRG automation</reportName>
         <!-- location of charts in the test view -->
 
         <!-- top, bottom -->
 
-        <testViewChartLocation>top</testViewChartLocation>
+        <testViewChartLocation>bottom</testViewChartLocation>
         <!-- custom javascript -->
 
         <scripts>

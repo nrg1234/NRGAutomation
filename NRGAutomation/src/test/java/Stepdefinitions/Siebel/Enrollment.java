@@ -1,33 +1,27 @@
 package Stepdefinitions.Siebel;
 
-
 import Pages.Siebel.BAApprovescreditinSiebel;
-import Utilities.CommonFunctions;
-import Utilities.ExcelUtil;
+import Utilities.Context;
+import Utilities.TestContext;
+import apphooks.Base;
 import io.cucumber.java.en.Then;
 
-import java.util.List;
-import java.util.Map;
 
+public class Enrollment {
 
-public class Enrollment  {
-    String optyID;
-    String password;
-
-    BAApprovescreditinSiebel siebel;
-    CommonFunctions encrypted = new CommonFunctions();
-
-    @Then("SIEBEL : Approves Credit")
-    public void Ba_approves_credit_in_siebel() throws Throwable {
-        ExcelUtil util = new ExcelUtil();
-        List<Map<String, Object>> data = util.getData(".\\src\\test\\resources\\DataReader\\DSPTest.xlsx", "Source");
-        for (Map<String, Object> currentrow : data) {
-            siebel.BAApprovescreditinSiebel(currentrow, optyID);
-            System.out.println("credit has been Successfully approved in Siebel");
-            break;
-        }
+    private Base base;
+    TestContext testContext;
+    public Enrollment(Base base, TestContext context) {
+        this.base = base;
+        testContext = context;
     }
 
+	BAApprovescreditinSiebel siebel=new BAApprovescreditinSiebel(base) ;
 
+    @Then("SIEBEL: Approves Credit")
+    public void Ba_approves_credit_in_siebel() throws Throwable {
+            siebel.BAApprovescreditinSiebel((String) testContext.scenarioContext.getContext(Context.OPTY_ID));
+            System.out.println("credit has been Successfully approved in Siebel");
+    }
 }
 
