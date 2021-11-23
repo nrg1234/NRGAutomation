@@ -2,9 +2,12 @@ package Pages.DSP;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
+import Utilities.ConfigReader;
 import apphooks.Base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -60,30 +63,34 @@ public class CreateOptyPopup  {
 	/*
 	 * Create new opportunity.
 	 */
-public void CreateNewOpportunity(Map<String,Object> data) throws Throwable {
+public void CreateNewOpportunity(HashMap<String, String > OptyHeader) throws Throwable {
 CommonFunctions functions=new CommonFunctions();
+	ConfigReader config = new ConfigReader();
+	Properties prop = config.init_properties();
+
+	
 functions.click(driver,createNewOptyBtn);
 
 // Enter opportunity name
-functions.setText(driver, opportunityName, data.get("Opportunityname").toString());
+functions.setText(driver, opportunityName, OptyHeader.get("OPPORTUNITY_NAME"));
 
 // Wait for Duedate pop up before writing to input
-functions.setText(driver, dueDate, data.get("DueDate").toString());
+functions.setText(driver, dueDate, prop.getProperty("DueDate"));
  
 // Select the Market using the visible text
- functions.selectDropdownByVisibleText(driver,market,data.get("Market").toString());
+ functions.selectDropdownByVisibleText(driver,market,prop.getProperty("Market"));
 
 // Select the Marketsegment using the visible text
- functions.selectDropdownByVisibleText(driver,marketsegment,data.get("MarketSegment").toString());
+ functions.selectDropdownByVisibleText(driver,marketsegment,OptyHeader.get("MARKET_SEGMENT"));
 		
 // Select the start Date for the Opportunity
-functions.setText(driver,startDate,data.get("startDate").toString());
+functions.setText(driver,startDate,OptyHeader.get("START_DATE"));
 		
 // Select the End Date for the Opportunity
-functions.setText(driver,endDate,data.get("endDate").toString());
+functions.setText(driver,endDate,OptyHeader.get("END_DATE"));
 		
 //Select the AccountRep for the Opportunity
-functions.setText(driver,accountRep,data.get("accountRep").toString());
+functions.setText(driver,accountRep,OptyHeader.get("MARKETER_NAME"));
 functions.click(driver,accountRepMenu);
 
 // Click "create Button"

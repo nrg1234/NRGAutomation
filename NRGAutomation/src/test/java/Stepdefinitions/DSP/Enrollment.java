@@ -34,24 +34,16 @@ public class Enrollment  {
     GenerateContract contract =new GenerateContract(base) ;
     ViewContract status =new ViewContract(base) ;
     SendContracttoCustomer sendContract =new SendContracttoCustomer(base) ;
+    ExcelandXML opty=new ExcelandXML(base, testContext);
 
     @Then("DSP: Add New Opportunity")
     public void create_new_opportunity() throws Throwable {
-        ExcelUtil util = new ExcelUtil();
-        List<Map<String, Object>> data = util.getData(".\\src\\test\\resources\\DataReader\\DSPTest.xlsx", "Source");
-        System.out.println(data);
-        for (Map<String, Object> currentrow : data) {
-            opportunity.CreateNewOpportunity(currentrow);
-            System.out.println("Created New Opportunity");
-            break;
-        }
+    	opty.OptyXML();
     }
     
     @And("DSP: Add customer and sites from the input XML")
     public void Take_the_testdata_from_DBQuery() throws Throwable {
-    ReadXMLFile xml=new ReadXMLFile();
-    customername = xml.Readxml();
-    customer.AddCustomertoOpportunity(customername);
+    	opty.ReadXML();
     }
 
     @When("DSP: Add Sites to the new Opty")

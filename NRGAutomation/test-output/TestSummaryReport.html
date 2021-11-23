@@ -10,15 +10,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ExtentReports</title>
+    <title>NRG - Integration Automation Test Results - QA Automation Report</title>
         <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
         <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
 	    <link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@6fbbd1c32fbc2463d026da5c6ce2e9eef0d29512/spark/css/spark-style.css" rel="stylesheet" />
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <style type="text/css">
 
+            
+
+        
 </style></head>    <script src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/7cc78ce/spark/js/jsontree.js"></script>
-<body class="spa bdd-report standard">
+<body class="spa bdd-report dark">
     <div class="app header-dark side-nav-folded">
         <div class="layout">
 <div class="header navbar">
@@ -43,12 +46,12 @@
         <ul class="nav-right">
           <li class="m-r-10">
             <a href="#">
-              <span class="badge badge-primary">ExtentReports</span>
+              <span class="badge badge-primary">NRG automation</span>
             </a>
           </li>
             <li class="m-r-10">
                 <a href="#">
-                    <span class="badge badge-primary">Nov 11, 2021 08:35:02 AM</span>
+                    <span class="badge badge-primary">Nov 22, 2021 10:38:45 AM</span>
                 </a>
             </li>
         </ul>
@@ -134,8 +137,8 @@
 					<div class="open-test">
 						<div class="test-detail">
 							<p class="name">New Enrollment with usage > 50Kwh</p>
-							<p class="duration text-sm">0h 1m 55s+401ms</p>
-							<span class="datetime">08:35:03 AM</span>
+							<p class="duration text-sm">0h 22m 17s+986ms</p>
+							<span class="datetime">10:38:56 AM</span>
 						</div>
 					</div>
 					<div class="test-contents d-none">
@@ -143,9 +146,9 @@
 							<div class="p-v-10 d-inline-block">
 								<div class="info">
 									<h5 class="test-status text-pass">New Enrollment with usage > 50Kwh</h5>
-									<span class='badge badge-success'>11.11.2021 08:35:03</span>
-									<span class='badge badge-danger'>11.11.2021 08:36:58</span>
-									<span class='badge badge-default'>0h 1m 55s+401ms</span>
+									<span class='badge badge-success'>11.22.2021 10:38:56</span>
+									<span class='badge badge-danger'>11.22.2021 11:01:14</span>
+									<span class='badge badge-default'>0h 22m 17s+986ms</span>
 								</div>
 								<div class="m-t-15">
 			<span class="badge badge-pill badge-default"><i class="fa fa-tag"></i> @Enrollment</span>
@@ -168,18 +171,102 @@
 		</div>
 				<div class="collapse">
 					<div class="card-body">
-							<div class="d-flex align-items-center justify-content-start given" title="Stepdefinitions.LoginDSP.user_is_on_Url_Login_screen()">
+							<div class="d-flex align-items-center justify-content-start given" title="Stepdefinitions.DSP.LoginDSP.page_Title_Should_be_Digital_Services_Platform()">
 								<span class="alert-icon pass-bg">
 									<i class="fa fa-check text-white"></i>
 								</span>
-								<span>Given Sales person successfully logged into DSP</span>
+								<span>Given DSP: make sure user is in landing page</span>
 							</div>
 				<div class="details"></div>
-							<div class="d-flex align-items-center justify-content-start then" title="Stepdefinitions.LoginDSP.page_Title_Should_be_Digital_Services_Platform()">
+							<div class="d-flex align-items-center justify-content-start and" title="Stepdefinitions.DSP.LoginDSP.toggle_should_be_Turned_off()">
 								<span class="alert-icon pass-bg">
 									<i class="fa fa-check text-white"></i>
 								</span>
-								<span>Then make sure user is in landing page</span>
+								<span>And DSP: Turn off WOLR view if enabled</span>
+							</div>
+				<div class="details"></div>
+							<div class="d-flex align-items-center justify-content-start when" title="Stepdefinitions.DSP.Enrollment.create_new_opportunity()">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>When DSP: Add New Opportunity</span>
+							</div>
+				<div class="details"></div>
+							<div class="d-flex align-items-center justify-content-start and" title="Stepdefinitions.DSP.Enrollment.Take_the_testdata_from_DBQuery()">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>And DSP: Add customer and sites from the input XML</span>
+							</div>
+				<div class="details"></div>
+							<div class="d-flex align-items-center justify-content-start when" title="Stepdefinitions.DSP.Enrollment.add_sites_to_the_opty()">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>When DSP: Add Sites to the new Opty</span>
+							</div>
+				<div class="details"></div>
+							<div class="d-flex align-items-center justify-content-start then" title="Stepdefinitions.DSP.Enrollment.view_credit_chevron()">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>Then DSP: View Credit</span>
+							</div>
+				<div class="details"></div>
+							<div class="d-flex align-items-center justify-content-start when" title="Stepdefinitions.Siebel.LoginSiebel.Login_to_Siebel_as_BA()">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>When SIEBEL: Login to Siebel as BA</span>
+							</div>
+				<div class="details"></div>
+							<div class="d-flex align-items-center justify-content-start then" title="Stepdefinitions.Siebel.Enrollment.Ba_approves_credit_in_siebel()">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>Then SIEBEL: Approves Credit</span>
+							</div>
+				<div class="details"></div>
+							<div class="d-flex align-items-center justify-content-start when" title="Stepdefinitions.VHOS.LoginVHOS.Login_to_VHOS_as_Sales_Person()">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>When VHOS: Login to VHOS as Sales Person</span>
+							</div>
+				<div class="details"></div>
+							<div class="d-flex align-items-center justify-content-start then" title="Stepdefinitions.VHOS.Enrollment.Opportunity_should_be_validated_in_VHOS()">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>Then VHOS: Validate Opty in VHOS</span>
+							</div>
+				<div class="details"></div>
+							<div class="d-flex align-items-center justify-content-start and" title="Stepdefinitions.DSP.Enrollment.price_a_deal()">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>And DSP: price a deal with Fixed product</span>
+							</div>
+				<div class="details"></div>
+							<div class="d-flex align-items-center justify-content-start then" title="Stepdefinitions.DSP.Enrollment.generate_contract()">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>Then DSP: Generate Contract in DSP</span>
+							</div>
+				<div class="details"></div>
+							<div class="d-flex align-items-center justify-content-start then" title="Stepdefinitions.DSP.Enrollment.View_Contracts()">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>Then DSP: Make sure the contract is generated</span>
+							</div>
+				<div class="details"></div>
+							<div class="d-flex align-items-center justify-content-start and" title="Stepdefinitions.DSP.Enrollment.send_contract_to_customer()">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>And DSP: Send generated contract to customer email</span>
 							</div>
 				<div class="details"></div>
 					</div>
@@ -261,7 +348,7 @@
 											<i class="fa fa-check text-white"></i>
 										</div>
 									</td>
-									<td>08:35:03 AM</td>
+									<td>10:38:56 AM</td>
 									<td class='linked' test-id='1'>
 										New Enrollment with usage > 50Kwh
 									</td>
@@ -272,7 +359,7 @@
 											<i class="fa fa-check text-white"></i>
 										</div>
 									</td>
-									<td>08:35:03 AM</td>
+									<td>10:38:56 AM</td>
 									<td class='linked' test-id='2'>
 										Validate new Enrollment for a single customer with usage > 50Kwh with Fixed product
 										<div class="">
@@ -320,7 +407,7 @@
 											<i class="fa fa-check text-white"></i>
 										</div>
 									</td>
-									<td>08:35:03 AM</td>
+									<td>10:38:56 AM</td>
 									<td class='linked' test-id='2'>
 										Validate new Enrollment for a single customer with usage > 50Kwh with Fixed product
 										<div class="">
@@ -368,7 +455,7 @@
 											<i class="fa fa-check text-white"></i>
 										</div>
 									</td>
-									<td>08:35:03 AM</td>
+									<td>10:38:56 AM</td>
 									<td class='linked' test-id='2'>
 										Validate new Enrollment for a single customer with usage > 50Kwh with Fixed product
 										<div class="">
@@ -454,7 +541,7 @@
 					</div>
 				</div>
 				<div class="card-footer">
-					<div><small data-tooltip='100%'><b>2</b> steps passed</small></div>
+					<div><small data-tooltip='100%'><b>14</b> steps passed</small></div>
 					<div>
 						<small data-tooltip='0%'><b>0</b> steps failed, 
 						<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
@@ -509,7 +596,7 @@
 					<div class="media justify-content-between">
 						<div class="card-header">
 							<h6 class="card-title">Start</h6>
-							<h4 class="font-weight-light mt-4">Nov 11, 2021 08:35:02 AM</h4>
+							<h4 class="font-weight-light mt-4">Nov 22, 2021 10:38:45 AM</h4>
 							<span class="text-semibold text-success font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -525,7 +612,7 @@
 					<div class="media justify-content-between">
 						<div class="card-header">
 							<h6 class="card-title">Duration</h6>
-							<h4 class="font-weight-light mt-4">0h 1m 55s+956ms</h4>
+							<h4 class="font-weight-light mt-4">0h 22m 30s+384ms</h4>
 							<span class="text-semibold font-size-15">
 						</div>
 						<div class="align-self-end">
@@ -626,8 +713,8 @@
 		infoChild: 0,
 		debugChild: 0,
 		exceptionsChild: 0,
-		grandChildCount: 2,
-		passGrandChild: 2,
+		grandChildCount: 14,
+		passGrandChild: 14,
 		failGrandChild: 0,
 		fatalGrandChild: 0,
 		errorGrandChild: 0,
@@ -636,8 +723,8 @@
 		infoGrandChild: 0,
 		debugGrandChild: 0,
 		exceptionsGrandChild: 0,
-		eventsCount: 2,
-		passEvents: 2,
+		eventsCount: 14,
+		passEvents: 14,
 		failEvents: 0,
 		fatalEvents: 0,
 		errorEvents: 0,
@@ -650,7 +737,7 @@
 </script>
 <script>
 	var timeline = {
-	        "New Enrollment with usage > 50Kwh":115.401
+	        "New Enrollment with usage > 50Kwh":1337.986
 	};
 </script>
                 </div>
@@ -661,5 +748,11 @@
 <script type="text/javascript">
 
 
+
+            
+$(document).ready(function() {
+});
+
+        
 </script></body>
 </html>

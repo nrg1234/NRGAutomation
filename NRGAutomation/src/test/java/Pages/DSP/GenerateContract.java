@@ -49,6 +49,8 @@ public class GenerateContract  {
 	@FindAll(value = { @FindBy(xpath="//button[contains(text(), 'Generate Contract')]")})
 	public List<WebElement> contractBtn;
 	
+	@FindBy(xpath="//button[contains(text(),'Create Contact')]")
+	WebElement CreateContact;
 	 /*
    	 * Generate contract workflow.
    	 */

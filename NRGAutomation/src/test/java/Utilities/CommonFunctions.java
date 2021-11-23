@@ -463,10 +463,6 @@ static WebDriver driver;
 		Thread.sleep(600000);
 	}
 	
-	
-	
-	
-
 	/**
 	 * @param //driver
 	 *           Method to Scroll to an element
