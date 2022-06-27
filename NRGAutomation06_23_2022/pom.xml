@@ -31,7 +31,7 @@
         <json.simple.version>1.1.1</json.simple.version>
         <aws.s3.sdk.version>1.11.1034</aws.s3.sdk.version>
         <maven.compiler.version>3.8.1</maven.compiler.version>
-        <maven.surefire.version>2.22.2</maven.surefire.version>
+        <maven.surefire.version>2.19.1</maven.surefire.version>
         <testng.version>7.3.0</testng.version>
         <cucumber.junit.version>1.2.5</cucumber.junit.version>
         <cucumber.java.version>1.2.5</cucumber.java.version>
@@ -269,9 +269,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
+                <version>${maven.surefire.version}</version>
                 <configuration>
-                  
+                  <testFailureIgnore>true</testFailureIgnore>
         <parallel>methods</parallel>
         <useUnlimitedThreads>true</useUnlimitedThreads>
     </configuration>
