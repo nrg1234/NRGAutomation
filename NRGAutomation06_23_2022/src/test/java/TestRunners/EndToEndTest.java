@@ -5,9 +5,9 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions
-(
+(publish = true ,
 		features = "src/test/resources/features",
-		tags="@NewEnrollment_SingleCustomer_Meterfee_VolRecs",
+		tags="@NewEnrollmentforasinglecustomerwithusage>50KwhwithFixedproduct",
 		glue = {"Stepdefinitions","apphooks"},
 		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","rerun:rerun/failed_scenarios.txt"},
 		monochrome = true
