@@ -1,7 +1,8 @@
 #@Enrollment  
 Feature: New Enrollment with usage > 50Kwh 
 @NewEnrollment_SingleCustomer_Meterfee_VolRecs
-Scenario: Validate new Enrollment for a single customer with usage > 50Kwh with Meterfee and Vol Recs
+Scenario: 
+Validate new Enrollment for a single customer with usage > 50Kwh with Meterfee and Vol Recs
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity 
