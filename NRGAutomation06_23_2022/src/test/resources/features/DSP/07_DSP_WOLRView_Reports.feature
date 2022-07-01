@@ -2,7 +2,8 @@
 Feature: WOLR Won and Lost Report 
 
 @Enrollment@WOLRWonReportGeneration 
-Scenario: Validate WOLR Won Report Generation 
+Scenario: 
+Validate WOLR Won Report Generation 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Make New Opportunity 
@@ -26,7 +27,8 @@ Scenario: Validate WOLR Won Report Generation
 	#    Then Generate the WON Report
 	
 @Enrollment@WOLRLostReportGeneration 
-Scenario: Validate WOLR Lost Report Generation 
+Scenario: 
+Validate WOLR Lost Report Generation 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Adding New Opportunity 
