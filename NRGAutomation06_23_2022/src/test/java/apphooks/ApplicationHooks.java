@@ -37,7 +37,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class ApplicationHooks extends Basey {
+public class ApplicationHooks extends Base {
 
 	
 	private Scenario scenario;
