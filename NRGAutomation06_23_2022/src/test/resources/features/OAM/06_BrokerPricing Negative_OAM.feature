@@ -2,7 +2,8 @@
 Feature: Negative validations for Broker Enrollment < 50Kwh from OAM 
 
 @Enrollment@MultipleTDSPSiteandNon-ERCOTsiteadditionisnotallowedforBrokerEnrollment<50KwhfromOAM 
-Scenario: Validate Multiple TDSP Site and Non-ERCOT site addition is not allowed for Broker Enrollment < 50Kwh from OAM 
+Scenario: 
+Validate Multiple TDSP Site and Non-ERCOT site addition is not allowed for Broker Enrollment < 50Kwh from OAM 
 	Given Broker successfully logged into OAM 
 	When User select Aggregator Third Party from drop down 
 	Then make sure user navigates to Enrollment Page 
@@ -14,7 +15,8 @@ Scenario: Validate Multiple TDSP Site and Non-ERCOT site addition is not allowed
 	Then validate Non-ERCOT Site addition is not allowed for this oppurtunity 
 	
 @Enrollment@AggregateCustomeradditionisnotallowedBrokerEnrollment<50KwhfromOAM 
-Scenario: Validate Aggregate Customer addition is not allowed Broker Enrollment < 50Kwh from OAM 
+Scenario: 
+Validate Aggregate Customer addition is not allowed Broker Enrollment < 50Kwh from OAM 
 	Given Broker successfully logged into OAM 
 	When User choose Aggregator Third Party from drop down 
 	Then  user navigates to Enrollment Page 
