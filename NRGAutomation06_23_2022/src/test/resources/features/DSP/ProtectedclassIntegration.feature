@@ -1,7 +1,8 @@
 #@Enrollment
 Feature: New Enrollment BP View with Annual Usage <50kwh with Sales Group as C&I
   @Enrollment@ProtectedClassNewOpportunityC&IThirdPartySingleIDRSiteDSP
-  Scenario: Validate new Enrollment Protected Class_New Opportunity_C&I_Third Party_Single IDR Site_DSP
+  Scenario: 
+  Validate new Enrollment Protected Class_New Opportunity_C&I_Third Party_Single IDR Site_DSP
     Given DSP: make sure user is in landing page
     And DSP: Clicks on All Opportunities
     When DSP: Add New Opportunity PC
@@ -12,7 +13,8 @@ Feature: New Enrollment BP View with Annual Usage <50kwh with Sales Group as C&I
 
 
   @Enrollment@DSPMatrixlessthan50kwhenrollment
-  Scenario: Validate Matrix Enrollment with Annual Usage< 50kwh from DSP
+  Scenario: 
+  Validate Matrix Enrollment with Annual Usage< 50kwh from DSP
     Given DSP: make sure user is in landing page
     And DSP: Clicks on All Opportunities
     And DSP: Click on Enter MATRIX Deal
@@ -25,7 +27,8 @@ Feature: New Enrollment BP View with Annual Usage <50kwh with Sales Group as C&I
     Then VHOS DB:Validate PCFlag in VHOS DB
 
 @ProtectedClassNewOpportunityC&IThirdPartySingleIDRSiteOAM
-  Scenario: Validate Matrix Enrollment from OAM with Annual Usage>50kwh and Sales Group as C&I
+  Scenario: 
+  Validate Matrix Enrollment from OAM with Annual Usage>50kwh and Sales Group as C&I
     Given Broker successfully logged into OAM
     When User select Aggregator oam Third Party from drop down
     Then make sure user navigates to Enrollment Page
