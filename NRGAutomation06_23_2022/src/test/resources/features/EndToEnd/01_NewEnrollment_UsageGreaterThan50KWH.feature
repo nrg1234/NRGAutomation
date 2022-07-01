@@ -27,7 +27,8 @@ Validate new Enrollment for a single customer with usage > 50Kwh with Fixed prod
 #	    Then SIEBEL:Modifying Contract Status in Siebel
 	
 @Enrollment @NewEnrollmentforaggregatecustomerwithusage>50KwhwithFixedproduct 
-Scenario: Validate new Enrollment for a aggregate customer with usage > 50Kwh with Fixed product 
+Scenario: 
+Validate new Enrollment for a aggregate customer with usage > 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity 
@@ -48,7 +49,8 @@ Scenario: Validate new Enrollment for a aggregate customer with usage > 50Kwh wi
 	
 	
 @Enrollment@StaggeredSiteEnrollmentforasinglecustomerwithusage>50KwhwithFixedproduct 
-Scenario: Validate StaggeredSite Enrollment for a single customer with usage > 50Kwh with Fixed product 
+Scenario: 
+Validate StaggeredSite Enrollment for a single customer with usage > 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity 
@@ -69,7 +71,8 @@ Scenario: Validate StaggeredSite Enrollment for a single customer with usage > 5
 ##	
 	
 @Enrollment@StaggeredSiteEnrollmentforaAggregatecustomerwithusage>50KwhwithFixedproduct
-Scenario: Validate StaggeredSite Enrollment for a Aggregate customer with usage > 50Kwh with Fixed product 
+Scenario: 
+Validate StaggeredSite Enrollment for a Aggregate customer with usage > 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity 
@@ -90,7 +93,8 @@ Scenario: Validate StaggeredSite Enrollment for a Aggregate customer with usage 
     
  	
 @BlankLOAdetailsenteredfromEmailisavailableintheDSPOpportunity 
-Scenario: Validate Blank LOA details entered from Email is available in the DSP Opportunity 
+Scenario: 
+Validate Blank LOA details entered from Email is available in the DSP Opportunity 
 	Given DSP: make sure user is in landing page 
 	Given DSP: Select Send Blank LOA from Opportunity Drop down 
 	When  DSP: User receives an email with Blank LOA 
@@ -101,7 +105,8 @@ Scenario: Validate Blank LOA details entered from Email is available in the DSP 
 	
 	
 @Enrollment@Matrixpricedealgreaterthan50kw 
-Scenario: Validate the Matrix price deal greater than 50kw 
+Scenario: 
+Validate the Matrix price deal greater than 50kw 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	And DSP: Click on ENTER MATRIX PRICE DEAL
@@ -120,7 +125,8 @@ Scenario: Validate the Matrix price deal greater than 50kw
 	
 	
 @Enrollment@Matrixdealmargingroupcreation
-Scenario: Validate the Matrix deal margin group creation
+Scenario: 
+Validate the Matrix deal margin group creation
 	#Given DSP: make sure user is in Outlook landing page 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
@@ -131,7 +137,8 @@ Scenario: Validate the Matrix deal margin group creation
 	
 
 @Enrollment @NewEnrollmentforasinglecustomerwithBrand>50KwhwithFixedproduct 
-Scenario: Validate new Enrollment for a single customer with Reliant Brand for usage > 50Kwh with Fixed product 
+Scenario: 
+Validate new Enrollment for a single customer with Reliant Brand for usage > 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity 
@@ -146,7 +153,8 @@ Scenario: Validate new Enrollment for a single customer with Reliant Brand for u
 		Then VHOS0: Validate Brand in VHOS
 		
 @Enrollment @NewEnrollmentNonErcotOpportunity>50KwhwithFixedproduct 
-Scenario: Validate new Enrollment for a single customer for Non Ercot Opportunity for usage > 50Kwh with Fixed product 
+Scenario: 
+Validate new Enrollment for a single customer for Non Ercot Opportunity for usage > 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add NonErcot Opportunity
