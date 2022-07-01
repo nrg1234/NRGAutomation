@@ -1,7 +1,8 @@
 #@Enrollment
 Feature: New Enrollment BP View with Annual Usage <50kwh with Sales Group as C&I
   @Enrollment@ProtectedClassNewOpportunityC&IThirdPartySingleIDRSiteDSP
-  Scenario: Validate new Enrollment Protected Class_New Opportunity_C&I_Third Party_Single IDR Site_DSP
+  Scenario: 
+  Validate new Enrollment Protected Class_New Opportunity_C&I_Third Party_Single IDR Site_DSP
     Given DSP: make sure user is in landing page
     And DSP: Clicks on All Opportunities
     When DSP: Add New Opportunity PC
