@@ -1,7 +1,8 @@
 #@Enrollment  
 Feature: New Enrollment with usage > 50Kwh 
 @NewEnrollment_SingleCustomer_Meterfee_VolRecs
-Scenario: Validate new Enrollment for a single customer with usage > 50Kwh with Meterfee and Vol Recs
+Scenario: 
+Validate new Enrollment for a single customer with usage > 50Kwh with Meterfee and Vol Recs
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity 
@@ -22,7 +23,8 @@ Scenario: Validate new Enrollment for a single customer with usage > 50Kwh with 
 #	    Then SIEBEL:Modifying Contract Status in Siebel
 
 	@Enrollment@Matrixbrokernegativevalidations
-	Scenario: Validate the Matrix Negative Validations
+	Scenario: 
+	Validate the Matrix Negative Validations
 #	Given DSP: make sure user is in landing page
 #	And DSP: Clicks on All Opportunities
 #	And DSP: Click on ENTER MATRIX PRICE DEAL
@@ -55,7 +57,8 @@ Scenario: Validate new Enrollment for a single customer with usage > 50Kwh with 
 
 
 	@Enrollment@BrokerPricingUINormalDeal
-	Scenario: Validate new Enrollment for a single customer with usage > 50Kwh with Broker Pricing UI Normal Deal
+	Scenario: 
+	Validate new Enrollment for a single customer with usage > 50Kwh with Broker Pricing UI Normal Deal
 		Given DSP: make sure user is in landing page
 		And DSP: Clicks on All Opportunities
 		When DSP: Add New Broker Opportunity
@@ -71,7 +74,8 @@ Scenario: Validate new Enrollment for a single customer with usage > 50Kwh with 
 #		Then SIEBEL:Validate Meterfee and Recs in Siebel
 
 	@Enrollment @HomePageFunctionality
-Scenario: Validate Home Page Functionality in DSP
+Scenario: 
+Validate Home Page Functionality in DSP
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
         Then DSP: Click on Dropdown Filter Button
