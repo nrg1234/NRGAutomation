@@ -2,7 +2,8 @@
 Feature: Pricing Link permission validation for different OAM users 
 
 @Enrollment@BrokerPermissions
-Scenario: Validate Pricing Link permission validation for different OAM users 
+Scenario: 
+Validate Pricing Link permission validation for different OAM users 
 	Given Internal Super User successfully logged into OAM 
 	When User selects Third party from OAM 
 	Then Pricing link should be appear
