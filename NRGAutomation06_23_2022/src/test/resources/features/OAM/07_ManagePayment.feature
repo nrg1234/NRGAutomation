@@ -1,8 +1,7 @@
 Feature: Manage Payment using ACH
 
 @Manage@ACH
-Scenario: 
-Manage Payment using ACH
+Scenario: Manage Payment using ACH
     Given Tester logged successfully into OAM
 	And User select Customer from drop down
 	Then Add ACH account Validation
