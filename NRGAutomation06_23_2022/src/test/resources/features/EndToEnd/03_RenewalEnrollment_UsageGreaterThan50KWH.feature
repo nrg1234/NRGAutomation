@@ -2,7 +2,8 @@
 Feature: Renew Enrollment with usage > 50Kwh 
 
 @Enrollment@RenewalEnrollmentforasinglecustomerwithusage>50KwhwithFixedproduct
-Scenario: Validate Renewal Enrollment for a single customer with usage > 50Kwh with Fixed product 
+Scenario: 
+Validate Renewal Enrollment for a single customer with usage > 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity 
@@ -28,7 +29,8 @@ Scenario: Validate Renewal Enrollment for a single customer with usage > 50Kwh w
 #	    Then SIEBEL:Closing Contract in Siebel
 	
 @Enrollment@RenewalEnrollmentforaAggregatecustomerwithusage>50KwhwithFixedproduct 
-Scenario: Validate Renewal Enrollment for a Aggregate customer with usage > 50Kwh with Fixed product 
+Scenario: 
+Validate Renewal Enrollment for a Aggregate customer with usage > 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New renewal Opportunity
@@ -48,7 +50,8 @@ Scenario: Validate Renewal Enrollment for a Aggregate customer with usage > 50Kw
 	
 	
 @Enrollment@RefreshEnrollmentafterdeletingSiteamendmentwithusage>50KwhwithFixedproduct 
-Scenario: Validate Refresh Enrollment after deleting Site amendment with usage > 50Kwh with Fixed product 
+Scenario: 
+Validate Refresh Enrollment after deleting Site amendment with usage > 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity 
@@ -68,7 +71,8 @@ Scenario: Validate Refresh Enrollment after deleting Site amendment with usage >
 #	    Then SIEBEL:Closing Contract in Siebel
 	
 @Enrollment@RefreshEnrollmentafteraddingSiteamendmentwithusage>50KwhwithFixedproduct 
-Scenario: Validate Refresh Enrollment after adding Site amendment with usage > 50Kwh with Fixed product 
+Scenario: 
+Validate Refresh Enrollment after adding Site amendment with usage > 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity 
@@ -89,7 +93,8 @@ Scenario: Validate Refresh Enrollment after adding Site amendment with usage > 5
 
 
 	@Enrollment	@RenewalPipelineSiebel
-Scenario: Validate Renewal Enrollment from Pipeline with Siebel Customer
+Scenario: 
+Validate Renewal Enrollment from Pipeline with Siebel Customer
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	And DSP: Click on Renewal Pipeline
@@ -108,7 +113,8 @@ Scenario: Validate Renewal Enrollment from Pipeline with Siebel Customer
 	#    Then SIEBEL:Modifying Contract Status in Siebel
 		
 @Enrollment	@RenewalPipelineSeibelothersource
-	Scenario: Validate Renewal Enrollment from Pipeline with IEnergy Customer
+	Scenario: 
+	Validate Renewal Enrollment from Pipeline with IEnergy Customer
 	Given DSP: make sure user is in landing page
 	And DSP: Clicks on All Opportunities 
 	And DSP: Clicks on Renewal Pipeline and Selects Other Source customer
