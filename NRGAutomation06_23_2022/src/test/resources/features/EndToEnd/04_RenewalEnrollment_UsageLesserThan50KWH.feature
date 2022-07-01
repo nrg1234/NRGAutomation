@@ -2,7 +2,8 @@
 Feature: Renew Enrollment with usage < 50Kwh 
 
 @SmokeTest@RenewalEnrollmentforasinglecustomerwithusage<50KwhwithFixedproduct
-Scenario: Validate Renewal Enrollment for a single customer with usage < 50Kwh with Fixed product 
+Scenario: 
+Validate Renewal Enrollment for a single customer with usage < 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity
