@@ -2,7 +2,8 @@
 Feature: Renew Enrollment with usage < 50Kwh 
 
 @SmokeTest@RenewalEnrollmentforasinglecustomerwithusage<50KwhwithFixedproduct
-Scenario: Validate Renewal Enrollment for a single customer with usage < 50Kwh with Fixed product 
+Scenario: 
+Validate Renewal Enrollment for a single customer with usage < 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity
@@ -21,7 +22,8 @@ Scenario: Validate Renewal Enrollment for a single customer with usage < 50Kwh w
 #	    Then SIEBEL:Closing Contract in Siebel
 	
 @SmokeTest@RenewalEnrollmentforaAggregatecustomerwithusage<50KwhwithFixedproduct  
-Scenario: Validate Renewal Enrollment for a Aggregate customer with usage < 50Kwh with Fixed product 
+Scenario: 
+Validate Renewal Enrollment for a Aggregate customer with usage < 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity
@@ -40,7 +42,8 @@ Scenario: Validate Renewal Enrollment for a Aggregate customer with usage < 50Kw
 #	    Then SIEBEL:Closing Contract in Siebel
 
 @Enrollment@RenewalEnrollmentforGME<50KwhwithFixedproduct
-Scenario: Validate Renewal Enrollment for a GME customer with usage < 50Kwh with Fixed product
+Scenario: 
+Validate Renewal Enrollment for a GME customer with usage < 50Kwh with Fixed product
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity 
@@ -55,6 +58,7 @@ Scenario: Validate Renewal Enrollment for a GME customer with usage < 50Kwh with
 
 
 @SmokeTest@SendingOutlookMail
-Scenario: Email trigger for Extent Reports 
+Scenario: 
+Email trigger for Extent Reports 
 	Given DSP: make sure user is in Outlook landing page 
 	Given DSP: Send Email to Stakeholders
