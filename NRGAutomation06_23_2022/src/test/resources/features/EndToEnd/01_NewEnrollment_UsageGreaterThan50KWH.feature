@@ -1,8 +1,7 @@
 #@Enrollment 
 Feature: New Enrollment with usage > 50Kwh 
 @Enrollment @NewEnrollmentforasinglecustomerwithusage>50KwhwithFixedproduct 
-Scenario: 
-Validate new Enrollment for a single customer with usage > 50Kwh with Fixed product 
+Scenario: Validate new Enrollment for a single customer with usage > 50Kwh with Fixed product 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
 	When DSP: Add New Opportunity 
