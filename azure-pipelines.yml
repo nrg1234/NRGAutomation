@@ -8,7 +8,7 @@ trigger:
 
 pool:
   #vmImage: ubuntu-latest
-name: D10119
+  name: D10119
   demands:
    - agent.name -equals Agent1
 steps:
