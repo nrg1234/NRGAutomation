@@ -7,8 +7,10 @@ trigger:
 - QABranch
 
 pool:
-  vmImage: ubuntu-latest
-
+  #vmImage: ubuntu-latest
+name: D10119
+  demands:
+   - agent.name -equals Agent1
 steps:
 - task: Maven@3
   inputs:
