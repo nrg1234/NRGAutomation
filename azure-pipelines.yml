@@ -5,10 +5,10 @@
 
 trigger:
 - QABranch
+pool: 
+  name: D10119
+  demands: -agent.name -equals Agent1
 
-pool:
-  name: D10119  
-  vmImage: Agent1
   
 steps:
 - task: Maven@3
