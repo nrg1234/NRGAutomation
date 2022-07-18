@@ -7,7 +7,7 @@ trigger:
 - QABranch
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'D10119'
   
 steps:
 - task: Maven@3
