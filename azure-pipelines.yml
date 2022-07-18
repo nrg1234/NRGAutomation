@@ -7,7 +7,8 @@ trigger:
 - QABranch
 
 pool:
-  vmImage: 'D10119'
+  name: D10119  
+  vmImage: Agent1
   
 steps:
 - task: Maven@3
