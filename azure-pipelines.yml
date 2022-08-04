@@ -18,7 +18,19 @@ stages:
   jobs:
   - job: TestOnWindows
     steps:
-    - script: echo Testing on Windows!
+    steps:
+    - task: Maven@3
+      inputs:
+        mavenPomFile: 'pom.xml'
+        goals: 'Test'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        mavenVersionOption: 'Default'
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
+
   - job: TestOnLinux
     steps:
     - script: echo Testing on Linux!
