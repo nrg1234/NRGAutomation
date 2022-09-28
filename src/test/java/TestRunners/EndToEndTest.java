@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions
 (publish=true ,
 		features = "src/test/resources/features",
-		tags="@Enrollment1",
+		tags="@CICD",
 		glue = {"Stepdefinitions","apphooks"},
 		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","rerun:rerun/failed_scenarios.txt"},
 		monochrome = true
