@@ -1,4 +1,4 @@
-@Enrollment
+@Enrollment @Test
 Feature: New Enrollment with usage < 50Kwh
 
   @SingleEnrollmentlessthan50 @TC_003_NewEnrollment_SingleCustomer_FixedProduct
