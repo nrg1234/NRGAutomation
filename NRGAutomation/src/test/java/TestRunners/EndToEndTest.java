@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions
 (
 		features = {"src/test/resources/features"},
-		tags="@TC_003_NewEnrollment_SingleCustomer_FixedProduct",
+		tags="E",
 		glue = {"Stepdefinitions","apphooks"},
 		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		monochrome = true
