@@ -1,7 +1,7 @@
 #@Enrollment 
 Feature: New Enrollment with usage < 50Kwh using Sitelist
 
-@Enrollment@NewEnrollmentforasinglecustomerwithusage<50KwhwithFixedproduct_Sitelist_Mvp_CRR_CMA@Enrollment1
+@Enrollment@NewEnrollmentforasinglecustomerwithusage<50KwhwithFixedproduct_Sitelist_Mvp_CRR_CMA@Enrollment1@CICD
 Scenario: Validate new Enrollment for a single customer with usage < 50Kwh using Sitelist 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
@@ -12,8 +12,8 @@ Scenario: Validate new Enrollment for a single customer with usage < 50Kwh using
 	Then DSP:Select a deal with Fixed product validate MVP and generate contract 
 	Then DSP:  Validate CRR in Dealoption 
 	Then VHOS: Validate MeterFee and Vol Recs in VHOS
-		When SIEBEL: Login to Siebel as BA 
-	When SIEBEL: Validate MVPCRR Siebel as BA 
+#		When SIEBEL: Login to Siebel as BA 
+#	When SIEBEL: Validate MVPCRR Siebel as BA 
 #	When VHOS: Login to VHOS as Sales Person
 #	Then VHOS:Authenticate Opportunity in VHOS
 #	Then DSP:Price a deal with Fixed product for <50kwh 
