@@ -1,6 +1,6 @@
 #@Enrollment 
 Feature: New Enrollment with usage > 50Kwh using HUUpload, ProxySites, BillCopy, AddSitelist 
-@Enrollment @NewEnrollmentforasinglecustomerwithusage>50KwhwithFixedproduct_HUUpload @Enrollment1
+@Enrollment @NewEnrollmentforasinglecustomerwithusage>50KwhwithFixedproduct_HUUpload @Enrollment1@CICD
 Scenario: Validate new Enrollment for a single customer with usage > 50Kwh using HUUpload 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
