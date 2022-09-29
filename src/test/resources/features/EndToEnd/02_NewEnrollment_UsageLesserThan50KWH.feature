@@ -1,7 +1,7 @@
 #@Enrollment 
 Feature: New Enrollment with usage < 50Kwh using Sitelist
 
-@Enrollment@NewEnrollmentforasinglecustomerwithusage<50KwhwithFixedproduct_Sitelist_Mvp_CRR_CMA@Enrollment1@CICD
+@Enrollment@NewEnrollmentforasinglecustomerwithusage<50KwhwithFixedproduct_Sitelist_Mvp_CRR_CMA@Enrollment1@smoke
 Scenario: Validate new Enrollment for a single customer with usage < 50Kwh using Sitelist 
 	Given DSP: make sure user is in landing page 
 	And DSP: Clicks on All Opportunities 
